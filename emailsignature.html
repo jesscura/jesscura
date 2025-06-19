@@ -14,6 +14,19 @@
       height: 16px;
       margin-right: 6px;
     }
+    .pulse {
+      animation: pulse 2s infinite;
+      display: inline-block;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .social-icons img:hover {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
   </style>
 </head>
 <body style="margin:0;padding:0;font-family:'Montserrat',Arial,sans-serif;font-size:14px;color:#4A5568;">
@@ -38,8 +51,8 @@
               <td style="padding-right:12px;width:70%;">
                 <p style="margin:0;font-weight:600;color:#fff;font-size:14px;">🎧 Listen to my Podcast</p>
                 <p style="margin:4px 0 8px 0;color:#fff;font-size:12px;">"The Young and Adulting Podcast with Jess"</p>
-                <a href="https://open.spotify.com/show/69T2Tyr3yLJ1WPFuJtMLHK" style="display:inline-block;background-color:rgba(255,255,255,0.2);padding:4px 8px;border-radius:4px;margin-right:8px;color:#fff;font-size:12px;">▶️ Spotify</a>
-                <a href="https://podcasts.apple.com/in/podcast/the-young-and-adulting-podcast-with-jess/id1723416513" style="display:inline-block;background-color:rgba(255,255,255,0.2);padding:4px 8px;border-radius:4px;color:#fff;font-size:12px;">▶️ Apple Podcasts</a>
+                <a class="pulse" href="https://open.spotify.com/show/69T2Tyr3yLJ1WPFuJtMLHK" style="display:inline-block;background-color:rgba(255,255,255,0.2);padding:4px 8px;border-radius:4px;margin-right:8px;color:#fff;font-size:12px;">▶️ Spotify</a>
+                <a class="pulse" href="https://podcasts.apple.com/in/podcast/the-young-and-adulting-podcast-with-jess/id1723416513" style="display:inline-block;background-color:rgba(255,255,255,0.2);padding:4px 8px;border-radius:4px;color:#fff;font-size:12px;">▶️ Apple Podcasts</a>
               </td>
               <td style="text-align:right;width:30%;">
                 <img src="https://skylake28.github.io/jesscura/img/Podcast%20Cover%20Art.png" alt="Podcast Cover" width="64" style="border-radius:4px;">
@@ -81,9 +94,9 @@
           </tr>
         </table>
 
-        <table style="margin-top:16px;">
+        <table class="social-icons" style="margin-top:16px;">
           <tr>
-            <td style="padding-right:8px;"><a href="https://www.upwork.com/freelancers/~01fc4632607706f678"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="24" height="24" alt="Upwork"></a></td>
+            <td style="padding-right:8px;"><a href="https://www.upwork.com/freelancers/~01fc4632607706f678"><img src="https://skylake28.github.io/jesscura/img/Upwork.png" width="24" height="24" alt="Upwork"></a></td>
             <td style="padding-right:8px;"><a href="https://www.linkedin.com/in/jesscura/"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" width="24" height="24" alt="LinkedIn"></a></td>
             <td style="padding-right:8px;"><a href="https://www.facebook.com/tyoungandadulting/"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="24" height="24" alt="Facebook"></a></td>
             <td style="padding-right:8px;"><a href="https://www.instagram.com/tyoungandadulting"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="24" height="24" alt="Instagram"></a></td>
