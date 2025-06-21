@@ -1,0 +1,1245 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesel Cura | Portfolio in Framer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .framer-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FF5E69, #FF8A56, #FFA84B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(90deg, #FF5E69, #FF8A56, #FFA84B);
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            transition: all 0.4s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 94, 105, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .framer-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+        }
+        
+        .framer-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .framer-button:hover:before {
+            left: 100%;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #FF5E69, #FF8A56);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .framer-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .framer-input:focus {
+            border-color: rgba(255, 94, 105, 0.5);
+            outline: none;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: #FF5E69;
+        }
+        
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .progress-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #FF5E69, #FF8A56);
+            transition: width 1s ease;
+        }
+        
+        .section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blur-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        /* Framer-specific animations */
+        .framer-fade-in {
+            opacity: 0;
+            animation: framerFadeIn 0.8s forwards;
+        }
+        
+        .framer-slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: framerSlideUp 0.8s forwards;
+        }
+        
+        .framer-slide-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: framerSlideInRight 0.8s forwards;
+        }
+        
+        .framer-slide-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: framerSlideInLeft 0.8s forwards;
+        }
+        
+        .framer-scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            animation: framerScaleIn 0.8s forwards;
+        }
+        
+        .framer-delay-100 { animation-delay: 0.1s; }
+        .framer-delay-200 { animation-delay: 0.2s; }
+        .framer-delay-300 { animation-delay: 0.3s; }
+        .framer-delay-400 { animation-delay: 0.4s; }
+        .framer-delay-500 { animation-delay: 0.5s; }
+        
+        @keyframes framerFadeIn {
+            to { opacity: 1; }
+        }
+        
+        @keyframes framerSlideUp {
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes framerSlideInRight {
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes framerSlideInLeft {
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes framerScaleIn {
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .framer-float {
+            animation: framerFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes framerFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .framer-pulse {
+            animation: framerPulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes framerPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.2; }
+        }
+        
+        /* Framer-specific scroll animations */
+        .framer-scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .framer-scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Framer accordion */
+        .framer-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            padding-top: 0;
+        }
+        
+        .framer-accordion.active .framer-accordion-content {
+            max-height: 300px;
+            padding-top: 1rem;
+        }
+        
+        .framer-accordion-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .framer-accordion.active .framer-accordion-toggle {
+            transform: rotate(45deg);
+        }
+        
+        /* Framer cursor */
+        .framer-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 94, 105, 0.3);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background 0.2s;
+            display: none;
+        }
+        
+        .framer-cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #FF5E69;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .framer-cursor, .framer-cursor-dot {
+                display: block;
+            }
+        }
+        
+        /* Framer scrollbar */
+        @media (min-width: 1024px) {
+            body {
+                overflow: overlay;
+            }
+            
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            
+            ::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 4px;
+            }
+            
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="framer-cursor"></div>
+    <div class="framer-cursor-dot"></div>
+
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="framer-header">
+        <div class="framer-container px-6 py-5">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold framer-fade-in">
+                    <span class="gradient-text">Jesel</span> Cura
+                </div>
+                
+                <nav class="hidden lg:block">
+                    <ul class="flex space-x-10">
+                        <li class="framer-fade-in framer-delay-100"><div class="nav-link" data-target="home">Home</div></li>
+                        <li class="framer-fade-in framer-delay-200"><div class="nav-link" data-target="about">About</div></li>
+                        <li class="framer-fade-in framer-delay-300"><div class="nav-link" data-target="services">Services</div></li>
+                        <li class="framer-fade-in framer-delay-400"><div class="nav-link" data-target="skills">Skills</div></li>
+                        <li class="framer-fade-in framer-delay-500"><div class="nav-link" data-target="testimonials">Testimonials</div></li>
+                        <li class="framer-fade-in framer-delay-500"><div class="nav-link" data-target="contact">Contact</div></li>
+                    </ul>
+                </nav>
+                
+                <div class="lg:hidden framer-fade-in">
+                    <div id="framer-menu-toggle" class="text-white cursor-pointer">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="framer-mobile-menu" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden flex-col justify-center items-center">
+            <div id="framer-close-menu" class="absolute top-6 right-6 text-white cursor-pointer">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </div>
+            
+            <nav>
+                <ul class="flex flex-col items-center space-y-8 text-2xl">
+                    <li><div class="nav-link framer-mobile-link" data-target="home">Home</div></li>
+                    <li><div class="nav-link framer-mobile-link" data-target="about">About</div></li>
+                    <li><div class="nav-link framer-mobile-link" data-target="services">Services</div></li>
+                    <li><div class="nav-link framer-mobile-link" data-target="skills">Skills</div></li>
+                    <li><div class="nav-link framer-mobile-link" data-target="testimonials">Testimonials</div></li>
+                    <li><div class="nav-link framer-mobile-link" data-target="contact">Contact</div></li>
+                </ul>
+            </nav>
+            
+            <div class="mt-16 flex space-x-6">
+                <div class="social-icon">
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fas fa-briefcase text-2xl"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-github text-2xl"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-twitter text-2xl"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="section min-h-screen flex items-center pt-20">
+        <div class="blur-circle bg-purple-500 w-96 h-96 -top-20 -left-20"></div>
+        <div class="blur-circle bg-pink-500 w-96 h-96 bottom-20 right-20"></div>
+        
+        <div class="framer-container px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 framer-slide-up">
+                        Hi, I'm <span class="gradient-text">Jesel Cura</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-medium text-gray-300 mb-8 framer-slide-up framer-delay-100">Virtual Assistant & Web Developer</h2>
+                    <p class="text-gray-400 text-lg mb-10 max-w-lg framer-slide-up framer-delay-200">
+                        I help businesses grow by providing top-notch virtual assistance and creating stunning websites that convert visitors into customers.
+                    </p>
+                    <div class="flex flex-wrap gap-4 framer-slide-up framer-delay-300">
+                        <div class="framer-button gradient-bg px-8 py-4 rounded-full font-medium" data-target="contact">
+                            Get in Touch
+                        </div>
+                        <div class="framer-button border border-white/20 hover:border-white/40 px-8 py-4 rounded-full font-medium" data-target="services">
+                            My Services
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative framer-slide-in-right framer-delay-200">
+                    <div class="relative z-10 framer-float">
+                        <svg class="w-full max-w-lg mx-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#FF5E69" d="M47.7,-57.2C59.9,-45.8,67.2,-29.2,69.2,-12.2C71.2,4.8,68,22.2,58.8,35.8C49.7,49.4,34.6,59.2,17.7,65.2C0.8,71.2,-17.9,73.4,-33.5,66.7C-49.1,60,-61.5,44.5,-68.2,26.8C-74.9,9.1,-75.8,-10.7,-68.9,-27.4C-62,-44.1,-47.2,-57.7,-31.6,-67.5C-16,-77.3,0.4,-83.3,16.3,-79.7C32.2,-76.1,47.6,-62.9,47.7,-57.2Z" transform="translate(100 100)" />
+                        </svg>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-3/4 h-3/4 text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5ZM12 13C13.1935 13 14.3381 12.5259 15.182 11.682C16.0259 10.8381 16.5 9.69347 16.5 8.5C16.5 7.30653 16.0259 6.16193 15.182 5.31802C14.3381 4.47411 13.1935 4 12 4C10.8065 4 9.66193 4.47411 8.81802 5.31802C7.97411 6.16193 7.5 7.30653 7.5 8.5C7.5 9.69347 7.97411 10.8381 8.81802 11.682C9.66193 12.5259 10.8065 13 12 13ZM5.5 20C5.10218 20 4.72064 19.842 4.43934 19.5607C4.15804 19.2794 4 18.8978 4 18.5C4 16.9087 4.63214 15.3826 5.75736 14.2574C6.88258 13.1321 8.4087 12.5 10 12.5H14C15.5913 12.5 17.1174 13.1321 18.2426 14.2574C19.3679 15.3826 20 16.9087 20 18.5C20 18.8978 19.842 19.2794 19.5607 19.5607C19.2794 19.842 18.8978 20 18.5 20H5.5Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20 framer-pulse"></div>
+                </div>
+            </div>
+            
+            <div class="mt-20 lg:mt-32 flex flex-col md:flex-row justify-between items-center framer-fade-in framer-delay-400">
+                <p class="text-gray-400 mb-6 md:mb-0">Trusted by companies worldwide</p>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+                    <div class="text-gray-500 text-xl font-bold">COMPANY 1</div>
+                    <div class="text-gray-500 text-xl font-bold">COMPANY 2</div>
+                    <div class="text-gray-500 text-xl font-bold">COMPANY 3</div>
+                    <div class="text-gray-500 text-xl font-bold">COMPANY 4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section py-20 md:py-32">
+        <div class="framer-container px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative framer-scroll-reveal">
+                        <div class="card p-3 md:p-6 max-w-md mx-auto">
+                            <div class="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                                <svg class="w-1/2 h-1/2 text-gray-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5ZM12 13C13.1935 13 14.3381 12.5259 15.182 11.682C16.0259 10.8381 16.5 9.69347 16.5 8.5C16.5 7.30653 16.0259 6.16193 15.182 5.31802C14.3381 4.47411 13.1935 4 12 4C10.8065 4 9.66193 4.47411 8.81802 5.31802C7.97411 6.16193 7.5 7.30653 7.5 8.5C7.5 9.69347 7.97411 10.8381 8.81802 11.682C9.66193 12.5259 10.8065 13 12 13ZM5.5 20C5.10218 20 4.72064 19.842 4.43934 19.5607C4.15804 19.2794 4 18.8978 4 18.5C4 16.9087 4.63214 15.3826 5.75736 14.2574C6.88258 13.1321 8.4087 12.5 10 12.5H14C15.5913 12.5 17.1174 13.1321 18.2426 14.2574C19.3679 15.3826 20 16.9087 20 18.5C20 18.8978 19.842 19.2794 19.5607 19.5607C19.2794 19.842 18.8978 20 18.5 20H5.5Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10">
+                            <div class="card p-4 md:p-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center">
+                                        <i class="fas fa-star text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xl md:text-2xl font-bold">5+ Years</div>
+                                        <div class="text-gray-400">Experience</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -top-6 -left-6 md:-top-10 md:-left-10">
+                            <div class="card p-4 md:p-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center">
+                                        <i class="fas fa-users text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xl md:text-2xl font-bold">100+</div>
+                                        <div class="text-gray-400">Clients</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 framer-scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+                    <div class="h-1 w-20 gradient-bg mb-8 rounded-full"></div>
+                    
+                    <p class="text-gray-300 mb-6">
+                        I'm Jesel Cura, a dedicated Virtual Assistant and Web Developer with over 5 years of experience helping businesses streamline their operations and establish a strong online presence.
+                    </p>
+                    
+                    <p class="text-gray-300 mb-6">
+                        My journey began when I realized the power of combining administrative expertise with technical skills. This unique blend allows me to offer comprehensive solutions that address both the day-to-day operational needs of businesses and their digital requirements.
+                    </p>
+                    
+                    <p class="text-gray-300 mb-10">
+                        I'm passionate about helping entrepreneurs and small businesses grow by taking administrative tasks off their plates and creating websites that not only look great but also drive results.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="framer-button gradient-bg px-8 py-4 rounded-full font-medium" data-target="contact">
+                            Contact Me
+                        </div>
+                        <div class="framer-button border border-white/20 hover:border-white/40 px-8 py-4 rounded-full font-medium flex items-center gap-2">
+                            <i class="fas fa-download"></i> Download CV
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section py-20 md:py-32 bg-black/30">
+        <div class="blur-circle bg-blue-500 w-96 h-96 top-20 right-20"></div>
+        
+        <div class="framer-container px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 framer-scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">My Services</h2>
+                <div class="h-1 w-20 gradient-bg mb-8 rounded-full mx-auto"></div>
+                <p class="text-gray-300">
+                    I offer a range of services designed to help your business grow and thrive in the digital landscape.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="card p-8 framer-scroll-reveal">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-tasks text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Administrative Support</h3>
+                    <p class="text-gray-400 mb-6">
+                        Email management, calendar organization, data entry, document preparation, and other administrative tasks to keep your business running smoothly.
+                    </p>
+                    <div class="flex items-center text-white group cursor-pointer">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="card p-8 framer-scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Web Development</h3>
+                    <p class="text-gray-400 mb-6">
+                        Custom website design and development, responsive layouts, e-commerce solutions, and website maintenance to establish your online presence.
+                    </p>
+                    <div class="flex items-center text-white group cursor-pointer">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="card p-8 framer-scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Social Media Management</h3>
+                    <p class="text-gray-400 mb-6">
+                        Content creation, scheduling, community engagement, and analytics reporting to grow your brand's social media presence and reach.
+                    </p>
+                    <div class="flex items-center text-white group cursor-pointer">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="card p-8 framer-scroll-reveal">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Research & Data Analysis</h3>
+                    <p class="text-gray-400 mb-6">
+                        Market research, competitor analysis, data collection, and insightful reports to inform your business decisions and strategy.
+                    </p>
+                    <div class="flex items-center text-white group cursor-pointer">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="card p-8 framer-scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-file-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Content Creation</h3>
+                    <p class="text-gray-400 mb-6">
+                        Blog posts, articles, newsletters, social media content, and other written materials to engage your audience and boost your SEO.
+                    </p>
+                    <div class="flex items-center text-white group cursor-pointer">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="card p-8 framer-scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Customer Support</h3>
+                    <p class="text-gray-400 mb-6">
+                        Email and chat support, ticket management, FAQ creation, and customer relationship management to ensure client satisfaction.
+                    </p>
+                    <div class="flex items-center text-white group cursor-pointer">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section py-20 md:py-32">
+        <div class="framer-container px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 framer-scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">My Skills</h2>
+                    <div class="h-1 w-20 gradient-bg mb-8 rounded-full"></div>
+                    
+                    <p class="text-gray-300 mb-10">
+                        With a diverse skill set spanning administrative tasks, web development, and digital marketing, I bring a comprehensive approach to helping your business succeed online.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="skill-item" data-percentage="95">
+                            <div class="flex justify-between mb-2">
+                                <span>Administrative Support</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-percentage="90">
+                            <div class="flex justify-between mb-2">
+                                <span>Web Development</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-percentage="85">
+                            <div class="flex justify-between mb-2">
+                                <span>Social Media Management</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-percentage="80">
+                            <div class="flex justify-between mb-2">
+                                <span>Content Creation</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item" data-percentage="90">
+                            <div class="flex justify-between mb-2">
+                                <span>Customer Support</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 mt-10 lg:mt-0 framer-scroll-reveal">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">HTML/CSS</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">JavaScript</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">WordPress</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">PHP</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">React</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Node.js</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">MS Office</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Google Workspace</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Asana</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Trello</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Canva</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Photoshop</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">SEO</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Content Writing</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Email Marketing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section py-20 md:py-32 bg-black/30">
+        <div class="blur-circle bg-pink-500 w-96 h-96 bottom-20 left-20"></div>
+        
+        <div class="framer-container px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 framer-scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Client Testimonials</h2>
+                <div class="h-1 w-20 gradient-bg mb-8 rounded-full mx-auto"></div>
+                <p class="text-gray-300">
+                    Don't just take my word for it. Here's what my clients have to say about working with me.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="card p-8 framer-scroll-reveal">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">J</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">John Smith</h4>
+                            <p class="text-gray-400 text-sm">CEO, Tech Solutions</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300">
+                        "Jesel has been an incredible asset to our team. Her administrative support and web development skills have helped us streamline our operations and improve our online presence. Highly recommended!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="card p-8 framer-scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">S</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-gray-400 text-sm">Founder, Creative Agency</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300">
+                        "Working with Jesel has been a game-changer for my business. She handles all my administrative tasks efficiently, allowing me to focus on growing my agency. Her attention to detail is exceptional."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="card p-8 framer-scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">M</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Brown</h4>
+                            <p class="text-gray-400 text-sm">E-commerce Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300">
+                        "Jesel redesigned my e-commerce website and the results have been amazing. Sales have increased by 40% since the launch. Her technical skills and eye for design are truly impressive."
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center framer-scroll-reveal">
+                <div class="framer-button gradient-bg px-8 py-4 rounded-full font-medium inline-block" data-target="contact">
+                    Work With Me
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section py-20 md:py-32">
+        <div class="framer-container px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 framer-scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+                <div class="h-1 w-20 gradient-bg mb-8 rounded-full mx-auto"></div>
+                <p class="text-gray-300">
+                    Have questions? I've got answers. If you don't see what you're looking for, feel free to contact me.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="framer-accordion card p-6 mb-4 framer-scroll-reveal">
+                    <div class="flex justify-between items-center cursor-pointer framer-accordion-header">
+                        <h3 class="text-lg font-medium">What services do you offer as a Virtual Assistant?</h3>
+                        <div class="framer-accordion-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="framer-accordion-content text-gray-400">
+                        <p>As a Virtual Assistant, I offer a wide range of services including email management, calendar organization, data entry, customer support, social media management, content creation, research, and more. I can tailor my services to meet your specific needs.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="framer-accordion card p-6 mb-4 framer-scroll-reveal" style="transition-delay: 0.1s;">
+                    <div class="flex justify-between items-center cursor-pointer framer-accordion-header">
+                        <h3 class="text-lg font-medium">What types of websites can you develop?</h3>
+                        <div class="framer-accordion-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="framer-accordion-content text-gray-400">
+                        <p>I specialize in creating responsive websites for small businesses, portfolios, blogs, and e-commerce stores. I work with WordPress, HTML/CSS, JavaScript, and various frameworks to deliver websites that are not only visually appealing but also functional and user-friendly.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="framer-accordion card p-6 mb-4 framer-scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="flex justify-between items-center cursor-pointer framer-accordion-header">
+                        <h3 class="text-lg font-medium">How do you charge for your services?</h3>
+                        <div class="framer-accordion-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="framer-accordion-content text-gray-400">
+                        <p>I offer flexible pricing options including hourly rates, monthly retainer packages, and project-based pricing. The specific rate depends on the scope of work, complexity, and time commitment required. I'm happy to discuss your needs and provide a customized quote.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="framer-accordion card p-6 mb-4 framer-scroll-reveal" style="transition-delay: 0.3s;">
+                    <div class="flex justify-between items-center cursor-pointer framer-accordion-header">
+                        <h3 class="text-lg font-medium">How quickly can you complete a website project?</h3>
+                        <div class="framer-accordion-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="framer-accordion-content text-gray-400">
+                        <p>The timeline for website projects varies depending on the complexity and scope. A simple website might take 1-2 weeks, while more complex projects could take 4-8 weeks. I'll provide you with a detailed timeline during our initial consultation based on your specific requirements.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="framer-accordion card p-6 framer-scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="flex justify-between items-center cursor-pointer framer-accordion-header">
+                        <h3 class="text-lg font-medium">Do you offer ongoing support after completing a project?</h3>
+                        <div class="framer-accordion-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="framer-accordion-content text-gray-400">
+                        <p>Yes, I offer ongoing support and maintenance packages for websites I've developed. This includes regular updates, security checks, content updates, and technical support. For virtual assistance services, I'm available for both short-term and long-term engagements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section py-20 md:py-32 bg-black/30">
+        <div class="blur-circle bg-purple-500 w-96 h-96 top-20 left-20"></div>
+        
+        <div class="framer-container px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 framer-scroll-reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
+                <div class="h-1 w-20 gradient-bg mb-8 rounded-full mx-auto"></div>
+                <p class="text-gray-300">
+                    Ready to work together? Fill out the form below and I'll get back to you as soon as possible.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2 framer-scroll-reveal">
+                    <form id="framer-contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="framer-input w-full px-4 py-3 rounded-lg text-white" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Your Email</label>
+                                <input type="email" id="email" name="email" class="framer-input w-full px-4 py-3 rounded-lg text-white" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="framer-input w-full px-4 py-3 rounded-lg text-white" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="6" class="framer-input w-full px-4 py-3 rounded-lg text-white" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="framer-button gradient-bg w-full px-8 py-4 rounded-lg font-medium">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2 framer-scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="card p-8 h-full">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Email</h4>
+                                    <p class="text-white hover:text-pink-400 transition cursor-pointer">hello@jesscura.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Location</h4>
+                                    <p class="text-white">Manila, Philippines</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Working Hours</h4>
+                                    <p class="text-white">Monday - Friday: 9AM - 5PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="font-medium text-gray-300 mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center social-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center social-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center social-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center social-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/10">
+        <div class="framer-container px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold">
+                        <span class="gradient-text">Jesel</span> Cura
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <p class="text-gray-400">© 2023 Jesel Cura. All rights reserved.</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <div class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="social-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Framer-specific interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('framer-menu-toggle');
+            const closeMenu = document.getElementById('framer-close-menu');
+            const mobileMenu = document.getElementById('framer-mobile-menu');
+            const mobileLinks = document.querySelectorAll('.framer-mobile-link');
+            
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+            });
+            
+            closeMenu.addEventListener('click', () => {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+            });
+            
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('flex');
+                    mobileMenu.classList.add('hidden');
+                    
+                    // Scroll to section
+                    const targetId = link.getAttribute('data-target');
+                    scrollToSection(targetId);
+                });
+            });
+            
+            // Scroll Reveal Animation
+            const scrollRevealElements = document.querySelectorAll('.framer-scroll-reveal');
+            
+            const checkScroll = () => {
+                scrollRevealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.85) {
+                        element.classList.add('active');
+                    }
+                });
+                
+                // Animate skill bars when in view
+                const skillSection = document.getElementById('skills');
+                if (skillSection) {
+                    const sectionTop = skillSection.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.85) {
+                        animateSkillBars();
+                    }
+                }
+            };
+            
+            // Animate skill bars
+            const animateSkillBars = () => {
+                const skillItems = document.querySelectorAll('.skill-item');
+                
+                skillItems.forEach((item, index) => {
+                    const percentage = item.getAttribute('data-percentage');
+                    const progressFill = item.querySelector('.progress-fill');
+                    
+                    setTimeout(() => {
+                        progressFill.style.width = percentage + '%';
+                    }, index * 200);
+                });
+            };
+            
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('load', checkScroll);
+            
+            // Framer Accordion
+            const accordionItems = document.querySelectorAll('.framer-accordion');
+            
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.framer-accordion-header');
+                
+                header.addEventListener('click', () => {
+                    // Close all other accordions
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current accordion
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Form Submission
+            const contactForm = document.getElementById('framer-contact-form');
+            
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the form data to a server
+                console.log({ name, email, subject, message });
+                
+                // Show success message (in a real implementation, you'd do this after successful submission)
+                alert('Thank you for your message! I will get back to you soon.');
+                
+                // Reset form
+                contactForm.reset();
+            });
+            
+            // Framer Cursor
+            const framerCursor = document.querySelector('.framer-cursor');
+            const cursorDot = document.querySelector('.framer-cursor-dot');
+            
+            document.addEventListener('mousemove', (e) => {
+                framerCursor.style.left = `${e.clientX}px`;
+                framerCursor.style.top = `${e.clientY}px`;
+                
+                cursorDot.style.left = `${e.clientX}px`;
+                cursorDot.style.top = `${e.clientY}px`;
+            });
+            
+            // Make cursor larger when hovering over interactive elements
+            const interactiveElements = document.querySelectorAll('.framer-button, .nav-link, .social-icon, .framer-accordion-header, .skill-pill');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    framerCursor.style.width = '50px';
+                    framerCursor.style.height = '50px';
+                    framerCursor.style.background = 'rgba(255, 94, 105, 0.2)';
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    framerCursor.style.width = '20px';
+                    framerCursor.style.height = '20px';
+                    framerCursor.style.background = 'rgba(255, 94, 105, 0.3)';
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('framer-header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-black/80', 'backdrop-blur-md');
+                } else {
+                    header.classList.remove('bg-black/80', 'backdrop-blur-md');
+                }
+            });
+            
+            // Smooth scrolling for navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            const buttons = document.querySelectorAll('.framer-button[data-target]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    scrollToSection(targetId);
+                });
+            });
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    scrollToSection(targetId);
+                });
+            });
+            
+            function scrollToSection(targetId) {
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            
+            // Framer-specific page load animations
+            function initFramerAnimations() {
+                // Trigger initial animations
+                setTimeout(() => {
+                    document.querySelectorAll('.framer-fade-in, .framer-slide-up, .framer-slide-in-right, .framer-slide-in-left, .framer-scale-in').forEach(el => {
+                        el.style.opacity = '1';
+                        if (el.classList.contains('framer-slide-up')) {
+                            el.style.transform = 'translateY(0)';
+                        } else if (el.classList.contains('framer-slide-in-right')) {
+                            el.style.transform = 'translateX(0)';
+                        } else if (el.classList.contains('framer-slide-in-left')) {
+                            el.style.transform = 'translateX(0)';
+                        } else if (el.classList.contains('framer-scale-in')) {
+                            el.style.transform = 'scale(1)';
+                        }
+                    });
+                }, 100);
+            }
+            
+            // Initialize animations
+            initFramerAnimations();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9535ee9316f5febc',t:'MTc1MDUzNDM0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
