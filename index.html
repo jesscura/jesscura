@@ -24,18 +24,18 @@
             overflow-x: hidden;
         }
         
-        .framer-text-gradient {
+        .gradient-text {
             background: linear-gradient(90deg, #FF5E69, #FF8A56, #FFA84B);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .framer-gradient-bg {
+        .gradient-bg {
             background: linear-gradient(90deg, #FF5E69, #FF8A56, #FFA84B);
         }
         
-        .framer-card {
+        .card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -43,20 +43,20 @@
             transition: all 0.4s ease;
         }
         
-        .framer-card:hover {
+        .card:hover {
             transform: translateY(-8px);
             border-color: rgba(255, 94, 105, 0.2);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         
-        .framer-button {
+        .custom-button {
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             z-index: 1;
         }
         
-        .framer-button:before {
+        .custom-button:before {
             content: '';
             position: absolute;
             top: 0;
@@ -68,16 +68,16 @@
             z-index: -1;
         }
         
-        .framer-button:hover:before {
+        .custom-button:hover:before {
             left: 100%;
         }
         
-        .framer-nav-link {
+        .nav-link {
             position: relative;
             transition: all 0.3s ease;
         }
         
-        .framer-nav-link:after {
+        .nav-link:after {
             content: '';
             position: absolute;
             width: 0;
@@ -88,62 +88,62 @@
             transition: width 0.3s ease;
         }
         
-        .framer-nav-link:hover:after {
+        .nav-link:hover:after {
             width: 100%;
         }
         
-        .framer-input {
+        .custom-input {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         
-        .framer-input:focus {
+        .custom-input:focus {
             border-color: rgba(255, 94, 105, 0.5);
             outline: none;
         }
         
-        .framer-social {
+        .social-icon {
             transition: all 0.3s ease;
         }
         
-        .framer-social:hover {
+        .social-icon:hover {
             transform: translateY(-5px);
             color: #FF5E69;
         }
         
-        .framer-pill {
+        .skill-pill {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
         
-        .framer-pill:hover {
+        .skill-pill:hover {
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
         }
         
-        .framer-progress-bar {
+        .progress-bar {
             height: 6px;
             border-radius: 3px;
             background: rgba(255, 255, 255, 0.1);
             overflow: hidden;
         }
         
-        .framer-progress-fill {
+        .progress-fill {
             height: 100%;
             border-radius: 3px;
             background: linear-gradient(90deg, #FF5E69, #FF8A56);
             transition: width 1s ease;
         }
         
-        .framer-section {
+        .section {
             position: relative;
             overflow: hidden;
         }
         
-        .framer-blur-circle {
+        .blur-circle {
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
@@ -267,17 +267,17 @@
         <div class="container mx-auto px-6 py-5">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold">
-                    <span class="framer-text-gradient">Jesel</span> Cura
+                    <span class="gradient-text">Jesel</span> Cura
                 </a>
                 
                 <nav class="hidden lg:block">
                     <ul class="flex space-x-10">
-                        <li><a href="#home" class="framer-nav-link">Home</a></li>
-                        <li><a href="#about" class="framer-nav-link">About</a></li>
-                        <li><a href="#services" class="framer-nav-link">Services</a></li>
-                        <li><a href="#skills" class="framer-nav-link">Skills</a></li>
-                        <li><a href="#testimonials" class="framer-nav-link">Testimonials</a></li>
-                        <li><a href="#contact" class="framer-nav-link">Contact</a></li>
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
                 
@@ -301,26 +301,26 @@
             
             <nav>
                 <ul class="flex flex-col items-center space-y-8 text-2xl">
-                    <li><a href="#home" class="framer-nav-link mobile-link">Home</a></li>
-                    <li><a href="#about" class="framer-nav-link mobile-link">About</a></li>
-                    <li><a href="#services" class="framer-nav-link mobile-link">Services</a></li>
-                    <li><a href="#skills" class="framer-nav-link mobile-link">Skills</a></li>
-                    <li><a href="#testimonials" class="framer-nav-link mobile-link">Testimonials</a></li>
-                    <li><a href="#contact" class="framer-nav-link mobile-link">Contact</a></li>
+                    <li><a href="#home" class="nav-link mobile-link">Home</a></li>
+                    <li><a href="#about" class="nav-link mobile-link">About</a></li>
+                    <li><a href="#services" class="nav-link mobile-link">Services</a></li>
+                    <li><a href="#skills" class="nav-link mobile-link">Skills</a></li>
+                    <li><a href="#testimonials" class="nav-link mobile-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link mobile-link">Contact</a></li>
                 </ul>
             </nav>
             
             <div class="mt-16 flex space-x-6">
-                <a href="https://www.linkedin.com/in/jesscura/" target="_blank" class="framer-social">
+                <a href="https://www.linkedin.com/in/jesscura/" target="_blank" class="social-icon">
                     <i class="fab fa-linkedin-in text-2xl"></i>
                 </a>
-                <a href="https://www.upwork.com/freelancers/~01fc4632607706f678" target="_blank" class="framer-social">
+                <a href="https://www.upwork.com/freelancers/~01fc4632607706f678" target="_blank" class="social-icon">
                     <i class="fas fa-briefcase text-2xl"></i>
                 </a>
-                <a href="#" class="framer-social">
+                <a href="#" class="social-icon">
                     <i class="fab fa-github text-2xl"></i>
                 </a>
-                <a href="#" class="framer-social">
+                <a href="#" class="social-icon">
                     <i class="fab fa-twitter text-2xl"></i>
                 </a>
             </div>
@@ -328,113 +328,126 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="framer-section min-h-screen flex items-center pt-20">
-        <div class="framer-blur-circle w-[500px] h-[500px] bg-[#FF5E69] top-[-100px] left-[-100px]"></div>
-        <div class="framer-blur-circle w-[600px] h-[600px] bg-[#FFA84B] bottom-[-200px] right-[-200px]"></div>
+    <section id="home" class="section min-h-screen flex items-center pt-20">
+        <div class="blur-circle bg-purple-500 w-96 h-96 -top-20 -left-20"></div>
+        <div class="blur-circle bg-pink-500 w-96 h-96 bottom-20 right-20"></div>
         
-        <div class="container mx-auto px-6 py-12">
+        <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 scroll-reveal">
-                    <h1 class="text-5xl lg:text-7xl font-bold mb-6">
-                        Hi, I'm <span class="framer-text-gradient">Jesel Cura</span>
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                        Hi, I'm <span class="gradient-text">Jesel Cura</span>
                     </h1>
-                    <h2 class="text-xl lg:text-2xl mb-8 text-gray-300">Virtual Assistant & Web Developer</h2>
+                    <h2 class="text-2xl md:text-3xl font-medium text-gray-300 mb-8">Virtual Assistant & Web Developer</h2>
                     <p class="text-gray-400 text-lg mb-10 max-w-lg">
-                        I help businesses streamline operations and enhance their online presence with expert virtual assistance and web development services.
+                        I help businesses grow by providing top-notch virtual assistance and creating stunning websites that convert visitors into customers.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#contact" class="px-8 py-4 framer-gradient-bg rounded-full font-medium framer-button">
+                        <a href="#contact" class="custom-button gradient-bg px-8 py-4 rounded-full font-medium">
                             Get in Touch
                         </a>
-                        <a href="#services" class="px-8 py-4 bg-transparent border border-white rounded-full font-medium framer-button">
+                        <a href="#services" class="custom-button border border-white/20 hover:border-white/40 px-8 py-4 rounded-full font-medium">
                             My Services
                         </a>
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2 flex justify-center scroll-reveal" data-delay="200">
-                    <div class="relative">
-                        <div class="w-72 h-72 lg:w-96 lg:h-96 rounded-full framer-gradient-bg flex items-center justify-center animate-float">
-                            <svg class="w-56 h-56 lg:w-72 lg:h-72 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                            </svg>
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 w-28 h-28 framer-card flex items-center justify-center animate-pulse-slow">
-                            <svg class="w-14 h-14 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                <div class="lg:w-1/2 relative">
+                    <div class="relative z-10 animate-float">
+                        <svg class="w-full max-w-lg mx-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#FF5E69" d="M47.7,-57.2C59.9,-45.8,67.2,-29.2,69.2,-12.2C71.2,4.8,68,22.2,58.8,35.8C49.7,49.4,34.6,59.2,17.7,65.2C0.8,71.2,-17.9,73.4,-33.5,66.7C-49.1,60,-61.5,44.5,-68.2,26.8C-74.9,9.1,-75.8,-10.7,-68.9,-27.4C-62,-44.1,-47.2,-57.7,-31.6,-67.5C-16,-77.3,0.4,-83.3,16.3,-79.7C32.2,-76.1,47.6,-62.9,47.7,-57.2Z" transform="translate(100 100)" />
+                        </svg>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-3/4 h-3/4 text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5ZM12 13C13.1935 13 14.3381 12.5259 15.182 11.682C16.0259 10.8381 16.5 9.69347 16.5 8.5C16.5 7.30653 16.0259 6.16193 15.182 5.31802C14.3381 4.47411 13.1935 4 12 4C10.8065 4 9.66193 4.47411 8.81802 5.31802C7.97411 6.16193 7.5 7.30653 7.5 8.5C7.5 9.69347 7.97411 10.8381 8.81802 11.682C9.66193 12.5259 10.8065 13 12 13ZM5.5 20C5.10218 20 4.72064 19.842 4.43934 19.5607C4.15804 19.2794 4 18.8978 4 18.5C4 16.9087 4.63214 15.3826 5.75736 14.2574C6.88258 13.1321 8.4087 12.5 10 12.5H14C15.5913 12.5 17.1174 13.1321 18.2426 14.2574C19.3679 15.3826 20 16.9087 20 18.5C20 18.8978 19.842 19.2794 19.5607 19.5607C19.2794 19.842 18.8978 20 18.5 20H5.5Z"/>
                             </svg>
                         </div>
                     </div>
+                    
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="framer-card p-8 text-center scroll-reveal">
-                    <h3 class="text-4xl font-bold framer-text-gradient mb-3">5+</h3>
-                    <p class="text-gray-400">Years Experience</p>
-                </div>
-                <div class="framer-card p-8 text-center scroll-reveal" data-delay="100">
-                    <h3 class="text-4xl font-bold framer-text-gradient mb-3">100%</h3>
-                    <p class="text-gray-400">Job Success Score</p>
-                </div>
-                <div class="framer-card p-8 text-center scroll-reveal" data-delay="200">
-                    <h3 class="text-4xl font-bold framer-text-gradient mb-3">50+</h3>
-                    <p class="text-gray-400">Happy Clients</p>
-                </div>
-                <div class="framer-card p-8 text-center scroll-reveal" data-delay="300">
-                    <h3 class="text-4xl font-bold framer-text-gradient mb-3">1000+</h3>
-                    <p class="text-gray-400">Hours Worked</p>
+            
+            <div class="mt-20 lg:mt-32 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-6 md:mb-0">Trusted by companies worldwide</p>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+                    <div class="text-gray-500 text-xl font-bold">COMPANY 1</div>
+                    <div class="text-gray-500 text-xl font-bold">COMPANY 2</div>
+                    <div class="text-gray-500 text-xl font-bold">COMPANY 3</div>
+                    <div class="text-gray-500 text-xl font-bold">COMPANY 4</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="framer-section py-24">
-        <div class="framer-blur-circle w-[400px] h-[400px] bg-[#FF8A56] top-[20%] right-[-100px]"></div>
-        
+    <section id="about" class="section py-20 md:py-32">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-16 text-center scroll-reveal">
-                About <span class="framer-text-gradient">Me</span>
-            </h2>
-            
             <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2 scroll-reveal">
+                <div class="lg:w-1/2">
                     <div class="relative">
-                        <div class="w-full h-96 framer-card overflow-hidden">
-                            <svg class="w-full h-full text-gray-700" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                        <div class="card p-3 md:p-6 max-w-md mx-auto">
+                            <div class="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                                <svg class="w-1/2 h-1/2 text-gray-600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 11.5C11.337 11.5 10.7011 11.2366 10.2322 10.7678C9.76339 10.2989 9.5 9.66304 9.5 9C9.5 8.33696 9.76339 7.70107 10.2322 7.23223C10.7011 6.76339 11.337 6.5 12 6.5C12.663 6.5 13.2989 6.76339 13.7678 7.23223C14.2366 7.70107 14.5 8.33696 14.5 9C14.5 9.66304 14.2366 10.2989 13.7678 10.7678C13.2989 11.2366 12.663 11.5 12 11.5ZM12 13C13.1935 13 14.3381 12.5259 15.182 11.682C16.0259 10.8381 16.5 9.69347 16.5 8.5C16.5 7.30653 16.0259 6.16193 15.182 5.31802C14.3381 4.47411 13.1935 4 12 4C10.8065 4 9.66193 4.47411 8.81802 5.31802C7.97411 6.16193 7.5 7.30653 7.5 8.5C7.5 9.69347 7.97411 10.8381 8.81802 11.682C9.66193 12.5259 10.8065 13 12 13ZM5.5 20C5.10218 20 4.72064 19.842 4.43934 19.5607C4.15804 19.2794 4 18.8978 4 18.5C4 16.9087 4.63214 15.3826 5.75736 14.2574C6.88258 13.1321 8.4087 12.5 10 12.5H14C15.5913 12.5 17.1174 13.1321 18.2426 14.2574C19.3679 15.3826 20 16.9087 20 18.5C20 18.8978 19.842 19.2794 19.5607 19.5607C19.2794 19.842 18.8978 20 18.5 20H5.5Z"/>
+                                </svg>
+                            </div>
                         </div>
-                        <div class="absolute -bottom-6 -right-6 w-28 h-28 framer-gradient-bg rounded-2xl"></div>
+                        
+                        <div class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10">
+                            <div class="card p-4 md:p-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center">
+                                        <i class="fas fa-star text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xl md:text-2xl font-bold">5+ Years</div>
+                                        <div class="text-gray-400">Experience</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -top-6 -left-6 md:-top-10 md:-left-10">
+                            <div class="card p-4 md:p-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center">
+                                        <i class="fas fa-users text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xl md:text-2xl font-bold">100+</div>
+                                        <div class="text-gray-400">Clients</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2 scroll-reveal" data-delay="200">
-                    <h3 class="text-3xl font-semibold mb-6">My Journey</h3>
-                    <p class="text-gray-300 mb-8 text-lg">
-                        I'm Jesel Cura, a dedicated Virtual Assistant and Web Developer with over 5 years of experience helping businesses grow and succeed online. Based in the Philippines, I've worked with clients worldwide to streamline their operations and enhance their digital presence.
-                    </p>
-                    <p class="text-gray-300 mb-10 text-lg">
-                        With a background in Computer Science and a passion for technology, I specialize in providing comprehensive virtual assistance services, web development, and digital marketing solutions. My goal is to help entrepreneurs and businesses focus on what they do best by handling their administrative and technical needs.
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+                    <div class="h-1 w-20 gradient-bg mb-8 rounded-full"></div>
+                    
+                    <p class="text-gray-300 mb-6">
+                        I'm Jesel Cura, a dedicated Virtual Assistant and Web Developer with over 5 years of experience helping businesses streamline their operations and establish a strong online presence.
                     </p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="framer-card p-6">
-                            <h4 class="text-xl font-semibold mb-3 framer-text-gradient">Education</h4>
-                            <p class="text-gray-300">Computer Science</p>
-                            <p class="text-gray-400">University of the Philippines</p>
-                        </div>
-                        <div class="framer-card p-6">
-                            <h4 class="text-xl font-semibold mb-3 framer-text-gradient">Experience</h4>
-                            <p class="text-gray-300">Virtual Assistant & Web Developer</p>
-                            <p class="text-gray-400">5+ Years Experience</p>
-                        </div>
+                    <p class="text-gray-300 mb-6">
+                        My journey began when I realized the power of combining administrative expertise with technical skills. This unique blend allows me to offer comprehensive solutions that address both the day-to-day operational needs of businesses and their digital requirements.
+                    </p>
+                    
+                    <p class="text-gray-300 mb-10">
+                        I'm passionate about helping entrepreneurs and small businesses grow by taking administrative tasks off their plates and creating websites that not only look great but also drive results.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="custom-button gradient-bg px-8 py-4 rounded-full font-medium">
+                            Contact Me
+                        </a>
+                        <a href="#" class="custom-button border border-white/20 hover:border-white/40 px-8 py-4 rounded-full font-medium flex items-center gap-2">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
                     </div>
                 </div>
             </div>
@@ -442,366 +455,194 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="framer-section py-24 bg-black bg-opacity-40">
-        <div class="framer-blur-circle w-[500px] h-[500px] bg-[#FF5E69] bottom-[10%] left-[-200px]"></div>
+    <section id="services" class="section py-20 md:py-32 bg-black/30">
+        <div class="blur-circle bg-blue-500 w-96 h-96 top-20 right-20"></div>
         
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-center scroll-reveal">
-                My <span class="framer-text-gradient">Services</span>
-            </h2>
-            <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto scroll-reveal" data-delay="100">
-                I offer a comprehensive range of virtual assistance and web development services to help your business thrive in the digital landscape.
-            </p>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">My Services</h2>
+                <div class="h-1 w-20 gradient-bg mb-8 rounded-full mx-auto"></div>
+                <p class="text-gray-300">
+                    I offer a range of services designed to help your business grow and thrive in the digital landscape.
+                </p>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="0">
-                    <div class="w-16 h-16 rounded-full bg-black bg-opacity-20 flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z"/>
-                        </svg>
+                <div class="card p-8 scroll-reveal">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-tasks text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Administrative Support</h3>
+                    <h3 class="text-xl font-bold mb-4">Administrative Support</h3>
                     <p class="text-gray-400 mb-6">
-                        Email management, calendar scheduling, data entry, document preparation, and general administrative tasks to keep your business running smoothly.
+                        Email management, calendar organization, data entry, document preparation, and other administrative tasks to keep your business running smoothly.
                     </p>
-                    <ul class="space-y-3 mb-4">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF5E69] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Email Management</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF5E69] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Calendar Management</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF5E69] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Document Preparation</span>
-                        </li>
-                    </ul>
+                    <a href="#contact" class="flex items-center text-white group">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="100">
-                    <div class="w-16 h-16 rounded-full bg-black bg-opacity-20 flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-                        </svg>
+                <div class="card p-8 scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Web Development</h3>
+                    <h3 class="text-xl font-bold mb-4">Web Development</h3>
                     <p class="text-gray-400 mb-6">
-                        Custom website development, maintenance, and optimization to create a professional online presence for your business.
+                        Custom website design and development, responsive layouts, e-commerce solutions, and website maintenance to establish your online presence.
                     </p>
-                    <ul class="space-y-3 mb-4">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF8A56] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Website Development</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF8A56] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">WordPress Management</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF8A56] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Website Maintenance</span>
-                        </li>
-                    </ul>
+                    <a href="#contact" class="flex items-center text-white group">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="200">
-                    <div class="w-16 h-16 rounded-full bg-black bg-opacity-20 flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-[#FFA84B]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
-                        </svg>
+                <div class="card p-8 scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Digital Marketing</h3>
+                    <h3 class="text-xl font-bold mb-4">Social Media Management</h3>
                     <p class="text-gray-400 mb-6">
-                        Social media management, content creation, and email marketing to boost your online presence and engage with your audience.
+                        Content creation, scheduling, community engagement, and analytics reporting to grow your brand's social media presence and reach.
                     </p>
-                    <ul class="space-y-3 mb-4">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FFA84B] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Social Media Management</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FFA84B] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Content Creation</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FFA84B] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Email Marketing</span>
-                        </li>
-                    </ul>
+                    <a href="#contact" class="flex items-center text-white group">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="300">
-                    <div class="w-16 h-16 rounded-full bg-black bg-opacity-20 flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 2h1.5v3l2-3h1.7l-2 3 2 3h-1.7l-2-3v3H12V5zM7 7.25h2.5V6.5H7V5h4v3.75H8.5v.75H11V11H7V7.25zM19 13l-6 6-4-4-4 4v-2.5l4-4 4 4 6-6V13z"/>
-                        </svg>
+                <div class="card p-8 scroll-reveal">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Data Management</h3>
+                    <h3 class="text-xl font-bold mb-4">Research & Data Analysis</h3>
                     <p class="text-gray-400 mb-6">
-                        Data entry, database management, and spreadsheet creation to organize and analyze your business information efficiently.
+                        Market research, competitor analysis, data collection, and insightful reports to inform your business decisions and strategy.
                     </p>
-                    <ul class="space-y-3 mb-4">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF5E69] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Data Entry</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF5E69] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Spreadsheet Management</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF5E69] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Database Management</span>
-                        </li>
-                    </ul>
+                    <a href="#contact" class="flex items-center text-white group">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
                 <!-- Service 5 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="400">
-                    <div class="w-16 h-16 rounded-full bg-black bg-opacity-20 flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
+                <div class="card p-8 scroll-reveal" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-file-alt text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Customer Support</h3>
+                    <h3 class="text-xl font-bold mb-4">Content Creation</h3>
                     <p class="text-gray-400 mb-6">
-                        Email and chat support, customer inquiries management, and order processing to ensure excellent customer service.
+                        Blog posts, articles, newsletters, social media content, and other written materials to engage your audience and boost your SEO.
                     </p>
-                    <ul class="space-y-3 mb-4">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF8A56] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Email Support</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF8A56] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Chat Support</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FF8A56] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Order Processing</span>
-                        </li>
-                    </ul>
+                    <a href="#contact" class="flex items-center text-white group">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
                 <!-- Service 6 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="500">
-                    <div class="w-16 h-16 rounded-full bg-black bg-opacity-20 flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-[#FFA84B]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-                        </svg>
+                <div class="card p-8 scroll-reveal" style="transition-delay: 0.4s;">
+                    <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4">Research & Analysis</h3>
+                    <h3 class="text-xl font-bold mb-4">Customer Support</h3>
                     <p class="text-gray-400 mb-6">
-                        Market research, competitor analysis, and data analysis to provide valuable insights for your business decisions.
+                        Email and chat support, ticket management, FAQ creation, and customer relationship management to ensure client satisfaction.
                     </p>
-                    <ul class="space-y-3 mb-4">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FFA84B] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Market Research</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FFA84B] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Competitor Analysis</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-[#FFA84B] mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                            </svg>
-                            <span class="text-gray-300">Data Analysis</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="framer-section py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-center scroll-reveal">
-                My <span class="framer-text-gradient">Process</span>
-            </h2>
-            <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto scroll-reveal" data-delay="100">
-                I follow a streamlined process to ensure that your project is completed efficiently and to your satisfaction.
-            </p>
-            
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="framer-card p-8 text-center flex-1 scroll-reveal" data-delay="0">
-                    <div class="w-20 h-20 rounded-full framer-gradient-bg flex items-center justify-center mx-auto mb-6">
-                        <span class="text-3xl font-bold text-white">1</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Discovery</h3>
-                    <p class="text-gray-400">
-                        We'll discuss your needs, goals, and expectations to create a tailored plan for your project.
-                    </p>
-                </div>
-                
-                <div class="framer-card p-8 text-center flex-1 scroll-reveal" data-delay="200">
-                    <div class="w-20 h-20 rounded-full framer-gradient-bg flex items-center justify-center mx-auto mb-6">
-                        <span class="text-3xl font-bold text-white">2</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Implementation</h3>
-                    <p class="text-gray-400">
-                        I'll execute the plan with regular updates and adjustments based on your feedback.
-                    </p>
-                </div>
-                
-                <div class="framer-card p-8 text-center flex-1 scroll-reveal" data-delay="400">
-                    <div class="w-20 h-20 rounded-full framer-gradient-bg flex items-center justify-center mx-auto mb-6">
-                        <span class="text-3xl font-bold text-white">3</span>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Refinement</h3>
-                    <p class="text-gray-400">
-                        We'll review the results together and make any necessary adjustments to ensure your satisfaction.
-                    </p>
+                    <a href="#contact" class="flex items-center text-white group">
+                        <span class="mr-2 group-hover:mr-4 transition-all">Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="framer-section py-24 bg-black bg-opacity-40">
-        <div class="framer-blur-circle w-[500px] h-[500px] bg-[#FF8A56] top-[30%] right-[-200px]"></div>
-        
+    <section id="skills" class="section py-20 md:py-32">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-16 text-center scroll-reveal">
-                My <span class="framer-text-gradient">Skills</span>
-            </h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <!-- Technical Skills -->
-                <div class="scroll-reveal">
-                    <h3 class="text-2xl font-semibold mb-8">Technical Skills</h3>
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">My Skills</h2>
+                    <div class="h-1 w-20 gradient-bg mb-8 rounded-full"></div>
+                    
+                    <p class="text-gray-300 mb-10">
+                        With a diverse skill set spanning administrative tasks, web development, and digital marketing, I bring a comprehensive approach to helping your business succeed online.
+                    </p>
+                    
                     <div class="space-y-6">
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-lg">HTML/CSS</span>
-                                <span class="text-lg">95%</span>
+                                <span>Administrative Support</span>
+                                <span>95%</span>
                             </div>
-                            <div class="framer-progress-bar">
-                                <div class="framer-progress-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-lg">JavaScript</span>
-                                <span class="text-lg">90%</span>
-                            </div>
-                            <div class="framer-progress-bar">
-                                <div class="framer-progress-fill" style="width: 90%"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 95%"></div>
                             </div>
                         </div>
+                        
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-lg">WordPress</span>
-                                <span class="text-lg">95%</span>
+                                <span>Web Development</span>
+                                <span>90%</span>
                             </div>
-                            <div class="framer-progress-bar">
-                                <div class="framer-progress-fill" style="width: 95%"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
                             </div>
                         </div>
+                        
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-lg">PHP</span>
-                                <span class="text-lg">85%</span>
+                                <span>Social Media Management</span>
+                                <span>85%</span>
                             </div>
-                            <div class="framer-progress-bar">
-                                <div class="framer-progress-fill" style="width: 85%"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
                             </div>
                         </div>
+                        
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-lg">Microsoft Office Suite</span>
-                                <span class="text-lg">95%</span>
+                                <span>Content Creation</span>
+                                <span>80%</span>
                             </div>
-                            <div class="framer-progress-bar">
-                                <div class="framer-progress-fill" style="width: 95%"></div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Customer Support</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Soft Skills -->
-                <div class="scroll-reveal" data-delay="200">
-                    <h3 class="text-2xl font-semibold mb-8">Soft Skills</h3>
-                    <div class="flex flex-wrap gap-4 mb-12">
-                        <span class="px-6 py-3 rounded-full framer-pill">Communication</span>
-                        <span class="px-6 py-3 rounded-full framer-pill">Time Management</span>
-                        <span class="px-6 py-3 rounded-full framer-pill">Problem Solving</span>
-                        <span class="px-6 py-3 rounded-full framer-pill">Attention to Detail</span>
-                        <span class="px-6 py-3 rounded-full framer-pill">Organization</span>
-                        <span class="px-6 py-3 rounded-full framer-pill">Adaptability</span>
-                        <span class="px-6 py-3 rounded-full framer-pill">Customer Service</span>
-                        <span class="px-6 py-3 rounded-full framer-pill">Project Management</span>
-                        <span class="px-6 py-3 rounded-full framer-pill">Multitasking</span>
-                    </div>
-                    
-                    <h3 class="text-2xl font-semibold mb-8">Tools & Technologies</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                        <div class="framer-card p-4 flex items-center">
-                            <div class="w-3 h-3 rounded-full bg-[#FF5E69] mr-3"></div>
-                            <span>WordPress</span>
-                        </div>
-                        <div class="framer-card p-4 flex items-center">
-                            <div class="w-3 h-3 rounded-full bg-[#FF8A56] mr-3"></div>
-                            <span>Elementor</span>
-                        </div>
-                        <div class="framer-card p-4 flex items-center">
-                            <div class="w-3 h-3 rounded-full bg-[#FFA84B] mr-3"></div>
-                            <span>Shopify</span>
-                        </div>
-                        <div class="framer-card p-4 flex items-center">
-                            <div class="w-3 h-3 rounded-full bg-[#FF5E69] mr-3"></div>
-                            <span>Microsoft Office</span>
-                        </div>
-                        <div class="framer-card p-4 flex items-center">
-                            <div class="w-3 h-3 rounded-full bg-[#FF8A56] mr-3"></div>
-                            <span>Google Workspace</span>
-                        </div>
-                        <div class="framer-card p-4 flex items-center">
-                            <div class="w-3 h-3 rounded-full bg-[#FFA84B] mr-3"></div>
-                            <span>Asana/Trello</span>
-                        </div>
+                <div class="lg:w-1/2 mt-10 lg:mt-0">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">HTML/CSS</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">JavaScript</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">WordPress</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">PHP</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">React</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Node.js</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">MS Office</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Google Workspace</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Asana</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Trello</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Canva</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Photoshop</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">SEO</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Content Writing</div>
+                        <div class="skill-pill px-4 py-3 rounded-full text-center">Email Marketing</div>
                     </div>
                 </div>
             </div>
@@ -809,223 +650,274 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="framer-section py-24">
-        <div class="framer-blur-circle w-[400px] h-[400px] bg-[#FF5E69] bottom-[20%] left-[-100px]"></div>
+    <section id="testimonials" class="section py-20 md:py-32 bg-black/30">
+        <div class="blur-circle bg-pink-500 w-96 h-96 bottom-20 left-20"></div>
         
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-center scroll-reveal">
-                Client <span class="framer-text-gradient">Testimonials</span>
-            </h2>
-            <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto scroll-reveal" data-delay="100">
-                Don't just take my word for it. Here's what my clients have to say about working with me.
-            </p>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Client Testimonials</h2>
+                <div class="h-1 w-20 gradient-bg mb-8 rounded-full mx-auto"></div>
+                <p class="text-gray-300">
+                    Don't just take my word for it. Here's what my clients have to say about working with me.
+                </p>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="0">
+                <div class="card p-8 scroll-reveal">
                     <div class="flex items-center mb-6">
-                        <div class="w-14 h-14 rounded-full bg-black bg-opacity-20 flex items-center justify-center mr-4">
-                            <svg class="w-8 h-8 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">J</span>
                         </div>
                         <div>
-                            <h4 class="text-xl font-semibold">John D.</h4>
-                            <p class="text-gray-400">Business Owner</p>
+                            <h4 class="font-bold">John Smith</h4>
+                            <p class="text-gray-400 text-sm">CEO, Tech Solutions</p>
                         </div>
                     </div>
-                    <div class="mb-6 flex">
-                        <svg class="w-5 h-5 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-300 italic text-lg">
-                        "Jesel is an exceptional virtual assistant. Her attention to detail and ability to handle multiple tasks efficiently has been invaluable to my business. Highly recommended!"
+                    <p class="text-gray-300">
+                        "Jesel has been an incredible asset to our team. Her administrative support and web development skills have helped us streamline our operations and improve our online presence. Highly recommended!"
                     </p>
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="200">
+                <div class="card p-8 scroll-reveal" style="transition-delay: 0.2s;">
                     <div class="flex items-center mb-6">
-                        <div class="w-14 h-14 rounded-full bg-black bg-opacity-20 flex items-center justify-center mr-4">
-                            <svg class="w-8 h-8 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">S</span>
                         </div>
                         <div>
-                            <h4 class="text-xl font-semibold">Sarah M.</h4>
-                            <p class="text-gray-400">E-commerce Owner</p>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-gray-400 text-sm">Founder, Creative Agency</p>
                         </div>
                     </div>
-                    <div class="mb-6 flex">
-                        <svg class="w-5 h-5 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-300 italic text-lg">
-                        "Jesel redesigned my e-commerce website and the results were amazing. Sales increased by 30% in the first month! Her technical skills and eye for design are outstanding."
+                    <p class="text-gray-300">
+                        "Working with Jesel has been a game-changer for my business. She handles all my administrative tasks efficiently, allowing me to focus on growing my agency. Her attention to detail is exceptional."
                     </p>
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="framer-card p-8 scroll-reveal" data-delay="400">
+                <div class="card p-8 scroll-reveal" style="transition-delay: 0.4s;">
                     <div class="flex items-center mb-6">
-                        <div class="w-14 h-14 rounded-full bg-black bg-opacity-20 flex items-center justify-center mr-4">
-                            <svg class="w-8 h-8 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                        <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">M</span>
                         </div>
                         <div>
-                            <h4 class="text-xl font-semibold">Michael R.</h4>
-                            <p class="text-gray-400">Marketing Agency</p>
+                            <h4 class="font-bold">Michael Brown</h4>
+                            <p class="text-gray-400 text-sm">E-commerce Entrepreneur</p>
                         </div>
                     </div>
-                    <div class="mb-6 flex">
-                        <svg class="w-5 h-5 text-[#FFA84B]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FFA84B]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FFA84B]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FFA84B]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
-                        <svg class="w-5 h-5 text-[#FFA84B]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                        </svg>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-300 italic text-lg">
-                        "Working with Jesel has been a game-changer for our agency. Her social media management and content creation skills have helped us deliver exceptional results to our clients."
+                    <p class="text-gray-300">
+                        "Jesel redesigned my e-commerce website and the results have been amazing. Sales have increased by 40% since the launch. Her technical skills and eye for design are truly impressive."
                     </p>
                 </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#contact" class="custom-button gradient-bg px-8 py-4 rounded-full font-medium inline-block">
+                    Work With Me
+                </a>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="framer-section py-24 bg-black bg-opacity-40">
+    <section class="section py-20 md:py-32">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-center scroll-reveal">
-                Frequently Asked <span class="framer-text-gradient">Questions</span>
-            </h2>
-            <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto scroll-reveal" data-delay="100">
-                Here are answers to some common questions about my services.
-            </p>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+                <div class="h-1 w-20 gradient-bg mb-8 rounded-full mx-auto"></div>
+                <p class="text-gray-300">
+                    Have questions? I've got answers. If you don't see what you're looking for, feel free to contact me.
+                </p>
+            </div>
             
-            <div class="max-w-3xl mx-auto scroll-reveal" data-delay="200">
-                <div class="framer-card p-6 mb-6">
-                    <div class="faq-item">
-                        <div class="flex justify-between items-center cursor-pointer faq-question">
-                            <h3 class="text-xl font-semibold">What are your working hours?</h3>
-                            <button class="faq-toggle w-8 h-8 flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="faq-answer">
-                            <p class="text-gray-400">
-                                I typically work Monday to Friday, 9 AM to 6 PM Philippine Time (GMT+8). However, I'm flexible and can adjust my schedule to accommodate your time zone and urgent tasks when needed.
-                            </p>
-                        </div>
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item card p-6 mb-4">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-medium">What services do you offer as a Virtual Assistant?</h3>
+                        <button class="faq-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer text-gray-400">
+                        <p>As a Virtual Assistant, I offer a wide range of services including email management, calendar organization, data entry, customer support, social media management, content creation, research, and more. I can tailor my services to meet your specific needs.</p>
                     </div>
                 </div>
                 
-                <div class="framer-card p-6 mb-6">
-                    <div class="faq-item">
-                        <div class="flex justify-between items-center cursor-pointer faq-question">
-                            <h3 class="text-xl font-semibold">How do you charge for your services?</h3>
-                            <button class="faq-toggle w-8 h-8 flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="faq-answer">
-                            <p class="text-gray-400">
-                                I offer flexible pricing options including hourly rates, fixed project fees, and monthly retainer packages. The pricing depends on the scope of work, complexity, and time required. I'll provide a detailed quote after understanding your specific needs.
-                            </p>
-                        </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item card p-6 mb-4">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-medium">What types of websites can you develop?</h3>
+                        <button class="faq-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer text-gray-400">
+                        <p>I specialize in creating responsive websites for small businesses, portfolios, blogs, and e-commerce stores. I work with WordPress, HTML/CSS, JavaScript, and various frameworks to deliver websites that are not only visually appealing but also functional and user-friendly.</p>
                     </div>
                 </div>
                 
-                <div class="framer-card p-6 mb-6">
-                    <div class="faq-item">
-                        <div class="flex justify-between items-center cursor-pointer faq-question">
-                            <h3 class="text-xl font-semibold">How do we communicate during projects?</h3>
-                            <button class="faq-toggle w-8 h-8 flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#FFA84B]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="faq-answer">
-                            <p class="text-gray-400">
-                                I'm flexible with communication methods and can use your preferred platform such as email, Slack, Zoom, Skype, or any project management tool. I provide regular updates and am always available for quick questions or discussions during my working hours.
-                            </p>
-                        </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item card p-6 mb-4">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-medium">How do you charge for your services?</h3>
+                        <button class="faq-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer text-gray-400">
+                        <p>I offer flexible pricing options including hourly rates, monthly retainer packages, and project-based pricing. The specific rate depends on the scope of work, complexity, and time commitment required. I'm happy to discuss your needs and provide a customized quote.</p>
                     </div>
                 </div>
                 
-                <div class="framer-card p-6 mb-6">
-                    <div class="faq-item">
-                        <div class="flex justify-between items-center cursor-pointer faq-question">
-                            <h3 class="text-xl font-semibold">What is your turnaround time?</h3>
-                            <button class="faq-toggle w-8 h-8 flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#FF5E69]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="faq-answer">
-                            <p class="text-gray-400">
-                                Turnaround time depends on the complexity and scope of the project. For small tasks, I typically deliver within 24-48 hours. For larger projects, I'll provide a detailed timeline during our initial consultation. I always strive to meet or exceed deadlines.
-                            </p>
-                        </div>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item card p-6 mb-4">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-medium">How quickly can you complete a website project?</h3>
+                        <button class="faq-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer text-gray-400">
+                        <p>The timeline for website projects varies depending on the complexity and scope. A simple website might take 1-2 weeks, while more complex projects could take 4-8 weeks. I'll provide you with a detailed timeline during our initial consultation based on your specific requirements.</p>
                     </div>
                 </div>
                 
-                <div class="framer-card p-6">
-                    <div class="faq-item">
-                        <div class="flex justify-between items-center cursor-pointer faq-question">
-                            <h3 class="text-xl font-semibold">Do you sign NDAs or confidentiality agreements?</h3>
-                            <button class="faq-toggle w-8 h-8 flex items-center justify-center">
-                                <svg class="w-6 h-6 text-[#FF8A56]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                                </svg>
+                <!-- FAQ Item 5 -->
+                <div class="faq-item card p-6">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-medium">Do you offer ongoing support after completing a project?</h3>
+                        <button class="faq-toggle w-8 h-8 flex items-center justify-center rounded-full border border-white/20">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="faq-answer text-gray-400">
+                        <p>Yes, I offer ongoing support and maintenance packages for websites I've developed. This includes regular updates, security checks, content updates, and technical support. For virtual assistance services, I'm available for both short-term and long-term engagements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section py-20 md:py-32 bg-black/30">
+        <div class="blur-circle bg-purple-500 w-96 h-96 top-20 left-20"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
+                <div class="h-1 w-20 gradient-bg mb-8 rounded-full mx-auto"></div>
+                <p class="text-gray-300">
+                    Ready to work together? Fill out the form below and I'll get back to you as soon as possible.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="custom-input w-full px-4 py-3 rounded-lg text-white" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Your Email</label>
+                                <input type="email" id="email" name="email" class="custom-input w-full px-4 py-3 rounded-lg text-white" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="custom-input w-full px-4 py-3 rounded-lg text-white" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="6" class="custom-input w-full px-4 py-3 rounded-lg text-white" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="custom-button gradient-bg w-full px-8 py-4 rounded-lg font-medium">
+                                Send Message
                             </button>
                         </div>
-                        <div class="faq-answer">
-                            <p class="text-gray-400">
-                                Yes, I'm happy to sign NDAs or confidentiality agreements. I understand the importance of privacy and treat all client information with the utmost confidentiality.
-                            </p>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="card p-8 h-full">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Email</h4>
+                                    <a href="mailto:hello@jesscura.com" class="text-white hover:text-pink-400 transition">hello@jesscura.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Location</h4>
+                                    <p class="text-white">Manila, Philippines</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Working Hours</h4>
+                                    <p class="text-white">Monday - Friday: 9AM - 5PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="font-medium text-gray-300 mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/jesscura/" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center social-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.upwork.com/freelancers/~01fc4632607706f678" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center social-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center social-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1033,67 +925,168 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-24 framer-gradient-bg">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-8 text-white scroll-reveal">Ready to Get Started?</h2>
-            <p class="text-white text-xl mb-10 max-w-2xl mx-auto scroll-reveal" data-delay="100">
-                Let's work together to take your business to the next level. Contact me today for a free consultation.
-            </p>
-            <a href="#contact" class="inline-block px-10 py-5 bg-white text-[#FF5E69] rounded-full font-bold text-lg hover:bg-opacity-90 transition-opacity framer-button scroll-reveal" data-delay="200">
-                Contact Me Now
-            </a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="framer-section py-24">
-        <div class="framer-blur-circle w-[500px] h-[500px] bg-[#FFA84B] bottom-[-200px] right-[-200px]"></div>
-        
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/10">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-16 text-center scroll-reveal">
-                Get In <span class="framer-text-gradient">Touch</span>
-            </h2>
-            
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2 scroll-reveal">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block mb-2 text-lg">Your Name</label>
-                            <input type="text" id="name" class="w-full px-6 py-4 rounded-xl framer-input focus:outline-none text-white" placeholder="John Doe">
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-lg">Your Email</label>
-                            <input type="email" id="email" class="w-full px-6 py-4 rounded-xl framer-input focus:outline-none text-white" placeholder="john@example.com">
-                        </div>
-                        <div>
-                            <label for="subject" class="block mb-2 text-lg">Subject</label>
-                            <input type="text" id="subject" class="w-full px-6 py-4 rounded-xl framer-input focus:outline-none text-white" placeholder="How can I help you?">
-                        </div>
-                        <div>
-                            <label for="message" class="block mb-2 text-lg">Your Message</label>
-                            <textarea id="message" rows="6" class="w-full px-6 py-4 rounded-xl framer-input focus:outline-none text-white" placeholder="Write your message here..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full px-6 py-4 framer-gradient-bg rounded-xl font-medium text-lg framer-button">
-                            Send Message
-                        </button>
-                    </form>
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold">
+                        <span class="gradient-text">Jesel</span> Cura
+                    </a>
                 </div>
                 
-                <div class="lg:w-1/2 scroll-reveal" data-delay="200">
-                    <div class="framer-card p-10 h-full">
-                        <h3 class="text-2xl font-semibold mb-8">Contact Information</h3>
-                        <div class="space-y-8">
-                            <div class="flex items-start space-x-6">
-                                <div class="w-12 h-12 rounded-full bg-black bg-opacity-20 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-envelope text-[#FF5E69] text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-xl font-medium mb-2">Email</h4>
-                                    <p class="text-gray-400 text-lg">jeselcura@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-6">
-                                <div class="w-12 h-12 rounded-full bg-black bg-opacity-20 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-map-marker-alt text-[#FF8A56] text-xl"></i>
-                                </div><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95355f4dc1e5fee3',t:'MTc1MDUyODQ3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <p class="text-gray-400">© 2023 Jesel Cura. All rights reserved.</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/jesscura/" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.upwork.com/freelancers/~01fc4632607706f678" target="_blank" class="social-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('flex');
+            mobileMenu.classList.add('hidden');
+        });
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Scroll Reveal Animation
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+        
+        const checkScroll = () => {
+            scrollRevealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const toggle = item.querySelector('.faq-toggle');
+            
+            toggle.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            console.log({ name, email, subject, message });
+            
+            // Show success message (in a real implementation, you'd do this after successful submission)
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Custom Cursor
+        const customCursor = document.querySelector('.custom-cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+        
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+            
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+        });
+        
+        // Make cursor larger when hovering over links and buttons
+        const interactiveElements = document.querySelectorAll('a, button, .faq-item');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                customCursor.style.width = '50px';
+                customCursor.style.height = '50px';
+                customCursor.style.background = 'rgba(255, 94, 105, 0.2)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                customCursor.style.width = '20px';
+                customCursor.style.height = '20px';
+                customCursor.style.background = 'rgba(255, 94, 105, 0.3)';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/80', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('bg-black/80', 'backdrop-blur-md');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95357b8ab72a4039',t:'MTc1MDUyOTYzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
