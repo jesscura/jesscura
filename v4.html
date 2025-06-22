@@ -1,0 +1,1043 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesel Cura | Virtual Assistant & Web Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #ff6b6b, #ffa07a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(90deg, #ff6b6b, #ffa07a);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #ff6b6b, #ffa07a);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 107, 107, 0.5);
+        }
+        
+        .testimonial-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .contact-input {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .social-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #ff6b6b;
+        }
+        
+        .stats-item {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stats-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 107, 107, 0.5);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            right: -1rem;
+            width: 2rem;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa07a);
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .process-step:not(:last-child)::after {
+                display: block;
+            }
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-[#1a1a1a] bg-opacity-95 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold">
+                    <span class="gradient-text">Jesel</span> Cura
+                </h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-[#1a1a1a] bg-opacity-95 py-4">
+            <ul class="flex flex-col items-center space-y-4">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16">
+        <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Jesel Cura</span></h1>
+                <h2 class="text-xl md:text-2xl mb-6 text-gray-300">Virtual Assistant & Web Developer</h2>
+                <p class="text-gray-400 mb-8 text-lg">
+                    I help businesses streamline operations and enhance their online presence with expert virtual assistance and web development services.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a] rounded-full font-medium hover:opacity-90 transition-opacity">
+                        Get in Touch
+                    </a>
+                    <a href="#services" class="px-6 py-3 border border-white rounded-full font-medium hover:bg-white hover:bg-opacity-10 transition">
+                        My Services
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-[#ff6b6b] to-[#ffa07a] flex items-center justify-center">
+                        <svg class="w-48 h-48 md:w-64 md:h-64 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-[#2a2a2a] rounded-lg flex items-center justify-center">
+                        <svg class="w-12 h-12 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-10 bg-[#222222]">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="stats-item bg-[#2a2a2a] p-6 rounded-lg text-center">
+                    <h3 class="text-3xl font-bold gradient-text mb-2">5+</h3>
+                    <p class="text-gray-400">Years Experience</p>
+                </div>
+                <div class="stats-item bg-[#2a2a2a] p-6 rounded-lg text-center">
+                    <h3 class="text-3xl font-bold gradient-text mb-2">100%</h3>
+                    <p class="text-gray-400">Job Success Score</p>
+                </div>
+                <div class="stats-item bg-[#2a2a2a] p-6 rounded-lg text-center">
+                    <h3 class="text-3xl font-bold gradient-text mb-2">50+</h3>
+                    <p class="text-gray-400">Happy Clients</p>
+                </div>
+                <div class="stats-item bg-[#2a2a2a] p-6 rounded-lg text-center">
+                    <h3 class="text-3xl font-bold gradient-text mb-2">1000+</h3>
+                    <p class="text-gray-400">Hours Worked</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                About <span class="gradient-text">Me</span>
+            </h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="relative">
+                        <div class="w-full h-80 md:h-96 bg-[#2a2a2a] rounded-lg overflow-hidden">
+                            <svg class="w-full h-full text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#ff6b6b] to-[#ffa07a] rounded-lg"></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">My Journey</h3>
+                    <p class="text-gray-300 mb-6">
+                        I'm Jesel Cura, a dedicated Virtual Assistant and Web Developer with over 5 years of experience helping businesses grow and succeed online. Based in the Philippines, I've worked with clients worldwide to streamline their operations and enhance their digital presence.
+                    </p>
+                    <p class="text-gray-300 mb-8">
+                        With a background in Computer Science and a passion for technology, I specialize in providing comprehensive virtual assistance services, web development, and digital marketing solutions. My goal is to help entrepreneurs and businesses focus on what they do best by handling their administrative and technical needs.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold mb-2">Education</h4>
+                            <p class="text-gray-400">Computer Science</p>
+                            <p class="text-gray-400">University of the Philippines</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Experience</h4>
+                            <p class="text-gray-400">Virtual Assistant & Web Developer</p>
+                            <p class="text-gray-400">5+ Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-[#222222]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+                My <span class="gradient-text">Services</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                I offer a comprehensive range of virtual assistance and web development services to help your business thrive in the digital landscape.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-[#2a2a2a] rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-14 h-14 rounded-full bg-[#333333] flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Administrative Support</h3>
+                        <p class="text-gray-400 mb-4">
+                            Email management, calendar scheduling, data entry, document preparation, and general administrative tasks to keep your business running smoothly.
+                        </p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Email Management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Calendar Management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Document Preparation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-[#2a2a2a] rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-14 h-14 rounded-full bg-[#333333] flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Web Development</h3>
+                        <p class="text-gray-400 mb-4">
+                            Custom website development, maintenance, and optimization to create a professional online presence for your business.
+                        </p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Website Development</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">WordPress Management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Website Maintenance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-[#2a2a2a] rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-14 h-14 rounded-full bg-[#333333] flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Digital Marketing</h3>
+                        <p class="text-gray-400 mb-4">
+                            Social media management, content creation, and email marketing to boost your online presence and engage with your audience.
+                        </p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Social Media Management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Content Creation</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Email Marketing</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-[#2a2a2a] rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-14 h-14 rounded-full bg-[#333333] flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 2h1.5v3l2-3h1.7l-2 3 2 3h-1.7l-2-3v3H12V5zM7 7.25h2.5V6.5H7V5h4v3.75H8.5v.75H11V11H7V7.25zM19 13l-6 6-4-4-4 4v-2.5l4-4 4 4 6-6V13z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Data Management</h3>
+                        <p class="text-gray-400 mb-4">
+                            Data entry, database management, and spreadsheet creation to organize and analyze your business information efficiently.
+                        </p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Data Entry</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Spreadsheet Management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Database Management</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-[#2a2a2a] rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-14 h-14 rounded-full bg-[#333333] flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Customer Support</h3>
+                        <p class="text-gray-400 mb-4">
+                            Email and chat support, customer inquiries management, and order processing to ensure excellent customer service.
+                        </p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Email Support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Chat Support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Order Processing</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-[#2a2a2a] rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="w-14 h-14 rounded-full bg-[#333333] flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Research & Analysis</h3>
+                        <p class="text-gray-400 mb-4">
+                            Market research, competitor analysis, and data analysis to provide valuable insights for your business decisions.
+                        </p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Market Research</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Competitor Analysis</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-4 h-4 text-[#ff6b6b] mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                </svg>
+                                <span class="text-gray-300">Data Analysis</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+                My <span class="gradient-text">Process</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                I follow a streamlined process to ensure that your project is completed efficiently and to your satisfaction.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="process-step bg-[#2a2a2a] p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 rounded-full bg-[#333333] flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold gradient-text">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Discovery</h3>
+                    <p class="text-gray-400">
+                        We'll discuss your needs, goals, and expectations to create a tailored plan for your project.
+                    </p>
+                </div>
+                
+                <div class="process-step bg-[#2a2a2a] p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 rounded-full bg-[#333333] flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold gradient-text">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Implementation</h3>
+                    <p class="text-gray-400">
+                        I'll execute the plan with regular updates and adjustments based on your feedback.
+                    </p>
+                </div>
+                
+                <div class="process-step bg-[#2a2a2a] p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 rounded-full bg-[#333333] flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold gradient-text">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Refinement</h3>
+                    <p class="text-gray-400">
+                        We'll review the results together and make any necessary adjustments to ensure your satisfaction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-[#222222]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                My <span class="gradient-text">Skills</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Technical Skills</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-[#3a3a3a] rounded-full h-2">
+                                <div class="bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a] h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>JavaScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-[#3a3a3a] rounded-full h-2">
+                                <div class="bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a] h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>WordPress</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-[#3a3a3a] rounded-full h-2">
+                                <div class="bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a] h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>PHP</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-[#3a3a3a] rounded-full h-2">
+                                <div class="bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a] h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Microsoft Office Suite</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-[#3a3a3a] rounded-full h-2">
+                                <div class="bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a] h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Soft Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Communication</span>
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Time Management</span>
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Problem Solving</span>
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Attention to Detail</span>
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Organization</span>
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Adaptability</span>
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Customer Service</span>
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Project Management</span>
+                        <span class="px-4 py-2 bg-[#3a3a3a] rounded-full skill-pill">Multitasking</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mt-10 mb-6">Tools & Technologies</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-[#ff6b6b] rounded-full"></div>
+                            <span>WordPress</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-[#ff6b6b] rounded-full"></div>
+                            <span>Elementor</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-[#ff6b6b] rounded-full"></div>
+                            <span>Shopify</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-[#ff6b6b] rounded-full"></div>
+                            <span>Microsoft Office</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-[#ff6b6b] rounded-full"></div>
+                            <span>Google Workspace</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-[#ff6b6b] rounded-full"></div>
+                            <span>Asana/Trello</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+                Client <span class="gradient-text">Testimonials</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                Don't just take my word for it. Here's what my clients have to say about working with me.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-[#2a2a2a] p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#333333] flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">John D.</h4>
+                            <p class="text-gray-400 text-sm">Business Owner</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 flex">
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Jesel is an exceptional virtual assistant. Her attention to detail and ability to handle multiple tasks efficiently has been invaluable to my business. Highly recommended!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-[#2a2a2a] p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#333333] flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Sarah M.</h4>
+                            <p class="text-gray-400 text-sm">E-commerce Owner</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 flex">
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Jesel redesigned my e-commerce website and the results were amazing. Sales increased by 30% in the first month! Her technical skills and eye for design are outstanding."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-[#2a2a2a] p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#333333] flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-gray-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Michael R.</h4>
+                            <p class="text-gray-400 text-sm">Marketing Agency</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 flex">
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Working with Jesel has been a game-changer for our agency. Her social media management and content creation skills have helped us deliver exceptional results to our clients."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-[#222222]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+                Frequently Asked <span class="gradient-text">Questions</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                Here are answers to some common questions about my services.
+            </p>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item py-4">
+                    <div class="flex justify-between items-center cursor-pointer faq-question">
+                        <h3 class="text-xl font-semibold">What are your working hours?</h3>
+                        <button class="faq-toggle w-6 h-6 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer pt-4">
+                        <p class="text-gray-400">
+                            I typically work Monday to Friday, 9 AM to 6 PM Philippine Time (GMT+8). However, I'm flexible and can adjust my schedule to accommodate your time zone and urgent tasks when needed.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item py-4">
+                    <div class="flex justify-between items-center cursor-pointer faq-question">
+                        <h3 class="text-xl font-semibold">How do you charge for your services?</h3>
+                        <button class="faq-toggle w-6 h-6 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer pt-4">
+                        <p class="text-gray-400">
+                            I offer flexible pricing options including hourly rates, fixed project fees, and monthly retainer packages. The pricing depends on the scope of work, complexity, and time required. I'll provide a detailed quote after understanding your specific needs.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item py-4">
+                    <div class="flex justify-between items-center cursor-pointer faq-question">
+                        <h3 class="text-xl font-semibold">How do we communicate during projects?</h3>
+                        <button class="faq-toggle w-6 h-6 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer pt-4">
+                        <p class="text-gray-400">
+                            I'm flexible with communication methods and can use your preferred platform such as email, Slack, Zoom, Skype, or any project management tool. I provide regular updates and am always available for quick questions or discussions during my working hours.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item py-4">
+                    <div class="flex justify-between items-center cursor-pointer faq-question">
+                        <h3 class="text-xl font-semibold">What is your turnaround time?</h3>
+                        <button class="faq-toggle w-6 h-6 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer pt-4">
+                        <p class="text-gray-400">
+                            Turnaround time depends on the complexity and scope of the project. For small tasks, I typically deliver within 24-48 hours. For larger projects, I'll provide a detailed timeline during our initial consultation. I always strive to meet or exceed deadlines.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item py-4">
+                    <div class="flex justify-between items-center cursor-pointer faq-question">
+                        <h3 class="text-xl font-semibold">Do you sign NDAs or confidentiality agreements?</h3>
+                        <button class="faq-toggle w-6 h-6 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-[#ff6b6b]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="faq-answer pt-4">
+                        <p class="text-gray-400">
+                            Yes, I'm happy to sign NDAs or confidentiality agreements. I understand the importance of privacy and treat all client information with the utmost confidentiality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a]">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Get Started?</h2>
+            <p class="text-white text-lg mb-8 max-w-2xl mx-auto">
+                Let's work together to take your business to the next level. Contact me today for a free consultation.
+            </p>
+            <a href="#contact" class="inline-block px-8 py-4 bg-white text-[#ff6b6b] rounded-full font-bold text-lg hover:bg-opacity-90 transition-opacity">
+                Contact Me Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                Get In <span class="gradient-text">Touch</span>
+            </h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 text-sm font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" placeholder="How can I help you?">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" placeholder="Write your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-[#ff6b6b] to-[#ffa07a] rounded-lg font-medium hover:opacity-90 transition-opacity">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-[#2a2a2a] p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-[#3a3a3a] flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-[#ff6b6b]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email</h4>
+                                    <p class="text-gray-400">jeselcura@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-[#3a3a3a] flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-[#ff6b6b]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Location</h4>
+                                    <p class="text-gray-400">Philippines</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-full bg-[#3a3a3a] flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-clock text-[#ff6b6b]"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Working Hours</h4>
+                                    <p class="text-gray-400">Monday - Friday, 9AM - 6PM (GMT+8)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold mt-10 mb-4">Connect With Me</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/jesscura/" target="_blank" class="w-10 h-10 rounded-full bg-[#3a3a3a] flex items-center justify-center social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.upwork.com/freelancers/~01fc4632607706f678" target="_blank" class="w-10 h-10 rounded-full bg-[#3a3a3a] flex items-center justify-center social-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-[#3a3a3a] flex items-center justify-center social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-[#3a3a3a] flex items-center justify-center social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-[#1a1a1a] border-t border-[#333333]">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold">
+                        <span class="gradient-text">Jesel</span> Cura
+                    </h2>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">© 2023 Jesel Cura. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // FAQ toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Form submission (demo only)
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('This is a demo form. In a real application, this would send your message.');
+            });
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95355b9c87befee3',t:'MTc1MDUyODMyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
