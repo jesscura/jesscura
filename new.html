@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signature</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .signature-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .signature {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .copy-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background-color: #d14d44;
+        }
+        
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        
+        .signature-preview {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+        
+        .divider {
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, #E4665D, #e87c74);
+            border-radius: 3px;
+        }
+
+        .toggle-input {
+            display: none;
+        }
+
+        .toggle-input:checked + label {
+            background-color: #E4665D;
+            color: white;
+            border-color: #E4665D;
+        }
+
+        .toggle-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .toggle-input:checked ~ .toggle-panel {
+            max-height: 500px;
+        }
+        
+        .avatar-option {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+        
+        .avatar-option:hover {
+            transform: scale(1.05);
+        }
+        
+        .avatar-option.selected {
+            border-color: #E4665D;
+        }
+        
+        .form-input {
+            @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#E4665D] text-sm;
+        }
+        
+        .form-label {
+            @apply block text-sm font-medium text-gray-700 mb-1;
+        }
+        
+        .form-group {
+            @apply mb-4;
+        }
+    </style>
+</head>
+<body>
+    <div class="signature-container">
+        <div class="bg-[#E4665D] text-white p-4 rounded-t-lg">
+            <h1 class="text-xl font-semibold">Email Signature Generator</h1>
+            <p class="text-sm opacity-80">Virtual Assistant & Podcast Host</p>
+        </div>
+        
+        <div class="signature p-6 bg-white">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Left Column - Preview and Copy Button -->
+                <div>
+                    <h2 class="text-lg font-medium text-gray-800 mb-3">Signature Preview</h2>
+                    <!-- Signature Preview -->
+                    <div class="signature-preview p-5 mb-6 border-2 border-gray-200">
+                        <table cellpadding="0" cellspacing="0" style="max-width: 500px; width: 100%; background: linear-gradient(135deg, #f9f9f9, #f0f0f0); border-radius: 8px; padding: 10px;">
+                            <tr>
+                                <td style="padding-right: 15px; vertical-align: middle;">
+                                    <div id="profilePicture" style="width: 80px; height: 80px; overflow: hidden; background-color: #E4665D;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" style="width: 100%; height: 100%; padding: 20px;">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                                <td style="padding-right: 15px;">
+                                    <div class="divider"></div>
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <p style="margin: 0; font-size: 18px; font-weight: 600; color: #E4665D;">Alex Morgan</p>
+                                    <p style="margin: 2px 0 8px; font-size: 14px; color: #6b7280; font-weight: 500;">Virtual Assistant & Podcast Host</p>
+                                    
+                                    <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                                        <tr>
+                                            <!-- Left Column of Contact Details -->
+                                            <td style="vertical-align: top; width: 50%;">
+                                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#E4665D" style="width: 16px; height: 16px; margin-right: 8px; flex-shrink: 0;">
+                                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                                    </svg>
+                                                    <a href="mailto:alex@productivitypro.com" style="text-decoration: none; color: #4b5563; font-size: 13px; word-break: break-all;">alex@productivitypro.com</a>
+                                                </div>
+                                                
+                                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#E4665D" style="width: 16px; height: 16px; margin-right: 8px; flex-shrink: 0;">
+                                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                                    </svg>
+                                                    <a href="tel:+1234567890" style="text-decoration: none; color: #4b5563; font-size: 13px;">+1 (234) 567-890</a>
+                                                </div>
+                                            </td>
+                                            
+                                            <!-- Right Column of Contact Details -->
+                                            <td style="vertical-align: top; width: 50%;">
+                                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#E4665D" style="width: 16px; height: 16px; margin-right: 8px; flex-shrink: 0;">
+                                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                                    </svg>
+                                                    <span style="color: #4b5563; font-size: 13px;">Remote | Worldwide</span>
+                                                </div>
+                                                
+                                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#E4665D" style="width: 16px; height: 16px; margin-right: 8px; flex-shrink: 0;">
+                                                        <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" />
+                                                    </svg>
+                                                    <a href="https://productivitypro.com" style="text-decoration: none; color: #4b5563; font-size: 13px;">productivitypro.com</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <div style="margin-top: 10px;">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tr id="socialIconsPreview">
+                                                <!-- LinkedIn Icon -->
+                                                <td style="padding-right: 8px;">
+                                                    <a href="#" class="social-icon linkedin-icon" style="text-decoration: none; display: inline-block;">
+                                                        <table cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #E4665D;">
+                                                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                                                    </svg>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </a>
+                                                </td>
+                                                
+                                                <!-- Twitter Icon -->
+                                                <td style="padding-right: 8px;">
+                                                    <a href="#" class="social-icon twitter-icon" style="text-decoration: none; display: inline-block;">
+                                                        <table cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #E4665D;">
+                                                                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                                                    </svg>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </a>
+                                                </td>
+                                                
+                                                <!-- Facebook Icon -->
+                                                <td style="padding-right: 8px;">
+                                                    <a href="#" class="social-icon facebook-icon" style="text-decoration: none; display: inline-block;">
+                                                        <table cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #E4665D;">
+                                                                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                                                                    </svg>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </a>
+                                                </td>
+                                                
+                                                <!-- Instagram Icon -->
+                                                <td style="padding-right: 8px;">
+                                                    <a href="#" class="social-icon instagram-icon" style="text-decoration: none; display: inline-block;">
+                                                        <table cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #E4665D;">
+                                                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                                                    </svg>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </a>
+                                                </td>
+                                                
+                                                <!-- TikTok Icon -->
+                                                <td style="padding-right: 8px;">
+                                                    <a href="#" class="social-icon tiktok-icon" style="text-decoration: none; display: inline-block;">
+                                                        <table cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #E4665D;">
+                                                                        <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                                                                    </svg>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </a>
+                                                </td>
+                                                
+                                                <!-- YouTube Icon -->
+                                                <td style="padding-right: 8px;">
+                                                    <a href="#" class="social-icon youtube-icon" style="text-decoration: none; display: inline-block;">
+                                                        <table cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #E4665D;">
+                                                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                                                                    </svg>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </a>
+                                                </td>
+                                                
+                                                <!-- Upwork Icon -->
+                                                <td>
+                                                    <a href="#" class="social-icon upwork-icon" style="text-decoration: none; display: inline-block;">
+                                                        <table cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #E4665D;">
+                                                                        <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
+                                                                    </svg>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    
+                                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e5e7eb;">
+                                        <p style="margin: 0; font-size: 12px; color: #6b7280;">
+                                            <span style="color: #E4665D; font-weight: 500;">🎙️ The Productivity Pro Podcast</span> - New episodes every Saturday
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!-- Profile Picture Section -->
+                    <div class="mb-6">
+                        <div class="mb-4">
+                            <input type="checkbox" id="avatarToggle" class="toggle-input">
+                            <label for="avatarToggle" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md cursor-pointer text-sm font-medium transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                                Change Profile Picture
+                            </label>
+                            
+                            <div class="toggle-panel mt-4 border border-gray-200 rounded-md p-4 bg-gray-50">
+                                <div class="mb-4">
+                                    <label class="form-label" for="imageUrl">Image URL</label>
+                                    <input type="text" id="imageUrl" placeholder="https://example.com/your-image.jpg" class="form-input">
+                                    <p class="text-xs text-gray-500 mt-1">Enter a direct link to your image</p>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button id="applyImageBtn" class="bg-[#E4665D] text-white px-4 py-2 rounded-md text-sm font-medium">
+                                        Apply Image
+                                    </button>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <p class="text-sm font-medium text-gray-700 mb-2">Or choose from icons:</p>
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                        <!-- Default Avatar -->
+                                        <div class="avatar-option selected" data-avatar="default">
+                                            <div class="w-full aspect-square rounded-md overflow-hidden bg-[#E4665D] flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-2/3 h-2/3">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                                </svg>
+                                            </div>
+                                            <p class="text-xs text-center mt-1">Default</p>
+                                        </div>
+                                        
+                                        <!-- Podcast Avatar -->
+                                        <div class="avatar-option" data-avatar="podcast">
+                                            <div class="w-full aspect-square rounded-md overflow-hidden bg-[#E4665D] flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-2/3 h-2/3">
+                                                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                                                    <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                                                </svg>
+                                            </div>
+                                            <p class="text-xs text-center mt-1">Podcast</p>
+                                        </div>
+                                        
+                                        <!-- Headset Avatar -->
+                                        <div class="avatar-option" data-avatar="headset">
+                                            <div class="w-full aspect-square rounded-md overflow-hidden bg-[#E4665D] flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-2/3 h-2/3">
+                                                    <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+                                                </svg>
+                                            </div>
+                                            <p class="text-xs text-center mt-1">Headset</p>
+                                        </div>
+                                        
+                                        <!-- Calendar Avatar -->
+                                        <div class="avatar-option" data-avatar="calendar">
+                                            <div class="w-full aspect-square rounded-md overflow-hidden bg-[#E4665D] flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-2/3 h-2/3">
+                                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                                                </svg>
+                                            </div>
+                                            <p class="text-xs text-center mt-1">Calendar</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <button id="copyBtn" class="copy-btn bg-[#E4665D] text-white px-6 py-3 rounded-lg font-medium flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                                <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+                            </svg>
+                            Copy Signature
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Form Controls -->
+                <div>
+                    <h2 class="text-lg font-medium text-gray-800 mb-3">Customize Your Signature</h2>
+                    
+                    <!-- Personal Information -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-md font-medium text-gray-700 mb-3">Personal Information</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label" for="fullName">Full Name</label>
+                                <input type="text" id="fullName" value="Alex Morgan" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="jobTitle">Job Title</label>
+                                <input type="text" id="jobTitle" value="Virtual Assistant & Podcast Host" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email</label>
+                                <input type="email" id="email" value="alex@productivitypro.com" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone</label>
+                                <input type="tel" id="phone" value="+1 (234) 567-890" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="location">Location</label>
+                                <input type="text" id="location" value="Remote | Worldwide" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="website">Website</label>
+                                <input type="text" id="website" value="productivitypro.com" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Podcast Information -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-md font-medium text-gray-700 mb-3">Podcast Information</h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="form-group">
+                                <label class="form-label" for="podcast">Podcast Name</label>
+                                <input type="text" id="podcast" value="🎙️ The Productivity Pro Podcast" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="podcastSchedule">Episode Schedule</label>
+                                <input type="text" id="podcastSchedule" value="New episodes every Saturday" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Section -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="text-md font-medium text-gray-700 mb-3">Social Media Links</h3>
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="form-group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="form-label mb-0" for="linkedinUrl">LinkedIn</label>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="linkedinToggle" class="mr-2 h-4 w-4 text-[#E4665D]" checked>
+                                        <span class="text-xs text-gray-500">Show</span>
+                                    </div>
+                                </div>
+                                <input type="text" id="linkedinUrl" value="https://linkedin.com/in/yourprofile" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="form-label mb-0" for="twitterUrl">Twitter</label>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="twitterToggle" class="mr-2 h-4 w-4 text-[#E4665D]" checked>
+                                        <span class="text-xs text-gray-500">Show</span>
+                                    </div>
+                                </div>
+                                <input type="text" id="twitterUrl" value="https://twitter.com/yourhandle" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="form-label mb-0" for="facebookUrl">Facebook</label>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="facebookToggle" class="mr-2 h-4 w-4 text-[#E4665D]" checked>
+                                        <span class="text-xs text-gray-500">Show</span>
+                                    </div>
+                                </div>
+                                <input type="text" id="facebookUrl" value="https://facebook.com/yourprofile" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="form-label mb-0" for="instagramUrl">Instagram</label>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="instagramToggle" class="mr-2 h-4 w-4 text-[#E4665D]" checked>
+                                        <span class="text-xs text-gray-500">Show</span>
+                                    </div>
+                                </div>
+                                <input type="text" id="instagramUrl" value="https://instagram.com/yourhandle" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="form-label mb-0" for="tiktokUrl">TikTok</label>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="tiktokToggle" class="mr-2 h-4 w-4 text-[#E4665D]" checked>
+                                        <span class="text-xs text-gray-500">Show</span>
+                                    </div>
+                                </div>
+                                <input type="text" id="tiktokUrl" value="https://tiktok.com/@yourhandle" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="form-label mb-0" for="youtubeUrl">YouTube</label>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="youtubeToggle" class="mr-2 h-4 w-4 text-[#E4665D]" checked>
+                                        <span class="text-xs text-gray-500">Show</span>
+                                    </div>
+                                </div>
+                                <input type="text" id="youtubeUrl" value="https://youtube.com/c/yourchannel" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="form-label mb-0" for="upworkUrl">Upwork</label>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="upworkToggle" class="mr-2 h-4 w-4 text-[#E4665D]" checked>
+                                        <span class="text-xs text-gray-500">Show</span>
+                                    </div>
+                                </div>
+                                <input type="text" id="upworkUrl" value="https://upwork.com/freelancers/yourprofile" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fullNameInput = document.getElementById('fullName');
+        const jobTitleInput = document.getElementById('jobTitle');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const locationInput = document.getElementById('location');
+        const websiteInput = document.getElementById('website');
+        const podcastInput = document.getElementById('podcast');
+        const podcastScheduleInput = document.getElementById('podcastSchedule');
+        const copyBtn = document.getElementById('copyBtn');
+        const signaturePreview = document.querySelector('.signature-preview');
+        const imageUrlInput = document.getElementById('imageUrl');
+        const applyImageBtn = document.getElementById('applyImageBtn');
+        
+        // Social media elements
+        const linkedinToggle = document.getElementById('linkedinToggle');
+        const twitterToggle = document.getElementById('twitterToggle');
+        const facebookToggle = document.getElementById('facebookToggle');
+        const instagramToggle = document.getElementById('instagramToggle');
+        const tiktokToggle = document.getElementById('tiktokToggle');
+        const youtubeToggle = document.getElementById('youtubeToggle');
+        const upworkToggle = document.getElementById('upworkToggle');
+        
+        const linkedinUrl = document.getElementById('linkedinUrl');
+        const twitterUrl = document.getElementById('twitterUrl');
+        const facebookUrl = document.getElementById('facebookUrl');
+        const instagramUrl = document.getElementById('instagramUrl');
+        const tiktokUrl = document.getElementById('tiktokUrl');
+        const youtubeUrl = document.getElementById('youtubeUrl');
+        const upworkUrl = document.getElementById('upworkUrl');
+        
+        // Avatar options
+        const avatarOptions = document.querySelectorAll('.avatar-option');
+        
+        // Update signature preview when inputs change
+        [fullNameInput, jobTitleInput, emailInput, phoneInput, locationInput, websiteInput, podcastInput, podcastScheduleInput].forEach(input => {
+            input.addEventListener('input', updateSignature);
+        });
+        
+        // Update social media visibility and URLs
+        [linkedinToggle, twitterToggle, facebookToggle, instagramToggle, tiktokToggle, youtubeToggle, upworkToggle].forEach(toggle => {
+            toggle.addEventListener('change', updateSocialIcons);
+        });
+        
+        [linkedinUrl, twitterUrl, facebookUrl, instagramUrl, tiktokUrl, youtubeUrl, upworkUrl].forEach(input => {
+            input.addEventListener('input', updateSocialUrls);
+        });
+        
+        // Avatar selection
+        avatarOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                avatarOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                updateAvatar(this.getAttribute('data-avatar'));
+            });
+        });
+        
+        // Apply custom image
+        applyImageBtn.addEventListener('click', function() {
+            const imageUrl = imageUrlInput.value.trim();
+            if (imageUrl) {
+                avatarOptions.forEach(opt => opt.classList.remove('selected'));
+                updateCustomImage(imageUrl);
+            }
+        });
+        
+        function updateSignature() {
+            const nameElement = signaturePreview.querySelector('p:first-of-type');
+            const jobElement = signaturePreview.querySelector('p:nth-of-type(2)');
+            const emailElement = signaturePreview.querySelector('a[href^="mailto"]');
+            const phoneElement = signaturePreview.querySelector('a[href^="tel"]');
+            const locationElement = signaturePreview.querySelector('span:nth-of-type(1)');
+            const websiteElement = signaturePreview.querySelector('a[href^="https://"]');
+            const podcastElement = signaturePreview.querySelector('p:last-of-type span');
+            const scheduleText = signaturePreview.querySelector('p:last-of-type');
+            
+            nameElement.textContent = fullNameInput.value;
+            jobElement.textContent = jobTitleInput.value;
+            emailElement.textContent = emailInput.value;
+            emailElement.href = `mailto:${emailInput.value}`;
+            phoneElement.textContent = phoneInput.value;
+            phoneElement.href = `tel:${phoneInput.value.replace(/\D/g, '')}`;
+            locationElement.textContent = locationInput.value;
+            
+            // Update website
+            websiteElement.textContent = websiteInput.value;
+            websiteElement.href = `https://${websiteInput.value}`;
+            
+            podcastElement.textContent = podcastInput.value;
+            
+            // Update the podcast schedule text
+            const podcastSpan = scheduleText.querySelector('span');
+            scheduleText.innerHTML = '';
+            scheduleText.appendChild(podcastSpan);
+            scheduleText.innerHTML += ` - ${podcastScheduleInput.value}`;
+        }
+        
+        function updateSocialIcons() {
+            const socialIconsRow = document.getElementById('socialIconsPreview');
+            const linkedinCell = socialIconsRow.querySelector('td:nth-child(1)');
+            const twitterCell = socialIconsRow.querySelector('td:nth-child(2)');
+            const facebookCell = socialIconsRow.querySelector('td:nth-child(3)');
+            const instagramCell = socialIconsRow.querySelector('td:nth-child(4)');
+            const tiktokCell = socialIconsRow.querySelector('td:nth-child(5)');
+            const youtubeCell = socialIconsRow.querySelector('td:nth-child(6)');
+            const upworkCell = socialIconsRow.querySelector('td:nth-child(7)');
+            
+            linkedinCell.style.display = linkedinToggle.checked ? 'table-cell' : 'none';
+            twitterCell.style.display = twitterToggle.checked ? 'table-cell' : 'none';
+            facebookCell.style.display = facebookToggle.checked ? 'table-cell' : 'none';
+            instagramCell.style.display = instagramToggle.checked ? 'table-cell' : 'none';
+            tiktokCell.style.display = tiktokToggle.checked ? 'table-cell' : 'none';
+            youtubeCell.style.display = youtubeToggle.checked ? 'table-cell' : 'none';
+            upworkCell.style.display = upworkToggle.checked ? 'table-cell' : 'none';
+        }
+        
+        function updateSocialUrls() {
+            const socialIconsRow = document.getElementById('socialIconsPreview');
+            const linkedinIcon = socialIconsRow.querySelector('.linkedin-icon');
+            const twitterIcon = socialIconsRow.querySelector('.twitter-icon');
+            const facebookIcon = socialIconsRow.querySelector('.facebook-icon');
+            const instagramIcon = socialIconsRow.querySelector('.instagram-icon');
+            const tiktokIcon = socialIconsRow.querySelector('.tiktok-icon');
+            const youtubeIcon = socialIconsRow.querySelector('.youtube-icon');
+            const upworkIcon = socialIconsRow.querySelector('.upwork-icon');
+            
+            linkedinIcon.href = linkedinUrl.value;
+            twitterIcon.href = twitterUrl.value;
+            facebookIcon.href = facebookUrl.value;
+            instagramIcon.href = instagramUrl.value;
+            tiktokIcon.href = tiktokUrl.value;
+            youtubeIcon.href = youtubeUrl.value;
+            upworkIcon.href = upworkUrl.value;
+        }
+        
+        function updateAvatar(avatarType) {
+            const profilePicture = document.getElementById('profilePicture');
+            let svgPath = '';
+            
+            // Remove any custom image styling
+            profilePicture.style.backgroundImage = '';
+            profilePicture.style.backgroundSize = '';
+            profilePicture.style.backgroundPosition = '';
+            
+            switch(avatarType) {
+                case 'podcast':
+                    svgPath = '<path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>';
+                    break;
+                case 'headset':
+                    svgPath = '<path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>';
+                    break;
+                case 'calendar':
+                    svgPath = '<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>';
+                    break;
+                default:
+                    svgPath = '<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>';
+            }
+            
+            profilePicture.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" style="width: 100%; height: 100%; padding: 20px;">
+                    ${svgPath}
+                </svg>
+            `;
+        }
+        
+        function updateCustomImage(imageUrl) {
+            const profilePicture = document.getElementById('profilePicture');
+            
+            // Clear any existing content
+            profilePicture.innerHTML = '';
+            
+            // Set the background image
+            profilePicture.style.backgroundImage = `url('${imageUrl}')`;
+            profilePicture.style.backgroundSize = 'cover';
+            profilePicture.style.backgroundPosition = 'center';
+        }
+        
+        // Initialize social icons
+        updateSocialIcons();
+        updateSocialUrls();
+        
+        // Copy signature functionality
+        copyBtn.addEventListener('click', () => {
+            const range = document.createRange();
+            range.selectNode(signaturePreview);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            
+            try {
+                document.execCommand('copy');
+                copyBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    Copied!
+                `;
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                            <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+                        </svg>
+                        Copy Signature
+                    `;
+                }, 2000);
+            } catch (err) {
+                alert('Failed to copy signature. Please try again.');
+            }
+            
+            window.getSelection().removeAllRanges();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'955c586792f6fed0',t:'MTc1MDkzNzE0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
